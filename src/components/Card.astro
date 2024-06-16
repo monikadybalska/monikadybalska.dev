@@ -15,10 +15,54 @@ const { title, image, description, label } = Astro.props;
   <div class="card">
     <div class="card-title">
       <h3>{title}</h3>
-      {label && <p class="label">{label}</p>}
+      {label && <p class="card-label">{label}</p>}
     </div>
     <img src={image} class="card-image" />
     <p>{description}</p>
     <Anchor text="Read details" href="" variant="text" />
   </div>
 </div>
+
+<style>
+  .card {
+    background-color: black;
+    color: white;
+    box-sizing: border-box;
+    padding: 0.8rem;
+    width: 100%;
+    display: flex;
+    gap: 0.5rem;
+    flex-direction: column;
+    border: dashed #61dafb 1.5px;
+  }
+
+  .card-title {
+    display: flex;
+    gap: 0.8rem;
+    align-items: center;
+  }
+
+  .card-image {
+    width: 100%;
+  }
+
+  .card-buttons {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .card-buttons button {
+    width: 100%;
+  }
+
+  .card-label {
+    padding: 0.2rem 0.5rem 0.2rem 0.5rem;
+    background-color: rgb(97, 218, 251, 0.8);
+    width: fit-content;
+    color: black;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    border-radius: 1rem;
+    text-align: center;
+  }
+</style>

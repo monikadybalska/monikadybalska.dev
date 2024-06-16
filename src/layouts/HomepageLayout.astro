@@ -1,0 +1,29 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+---
+
+<BaseLayout title="Monika Dybalska">
+  <main>
+    <slot />
+  </main>
+</BaseLayout>
+
+<style>
+  body {
+    margin: 0;
+    flex-grow: 1;
+    display: block;
+    overflow: scroll;
+  }
+
+  body,
+  html {
+    scroll-snap-type: y mandatory;
+  }
+
+  main {
+    display: block;
+    box-sizing: border-box;
+    overflow: visible;
+  }
+</style>

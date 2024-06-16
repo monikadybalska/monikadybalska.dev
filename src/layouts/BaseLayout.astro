@@ -1,0 +1,145 @@
+---
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
+<style is:global>
+  @font-face {
+    font-family: "Drogowskaz";
+    src: url("/fonts/Drogowskaz_lekki_owalny.woff") format("woff");
+    font-weight: light;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "Zaklad";
+    src: url("/fonts/Zaklad-Regular.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  html {
+    background-color: #e5e5e5;
+    font-family: "Drogowskaz";
+    background-image: url("nnnoise.svg");
+  }
+
+  #root {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+  }
+
+  h1 {
+    font-family: "Zaklad";
+    text-decoration: underline solid #61dafb;
+    margin: 0;
+    font-size: 4rem;
+  }
+
+  h2 {
+    font-family: "Zaklad";
+    text-decoration: underline solid #61dafb;
+    margin: 0;
+    font-size: 3rem;
+  }
+
+  h3 {
+    margin: 0;
+  }
+
+  p {
+    margin: 0;
+  }
+
+  a {
+    text-decoration: none;
+    color: black;
+  }
+
+  .homepage-section {
+    scroll-snap-align: start;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+
+  .homepage-section .section-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 15rem 0 15rem;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .homepage-section .section-text {
+    margin-right: 50px;
+    max-width: 660px;
+  }
+
+  .cols {
+    flex-direction: column;
+  }
+
+  @keyframes ripple {
+    to {
+      transform: scale(4);
+      opacity: 0;
+    }
+  }
+
+  @media screen and (max-width: 1300px) {
+    .homepage-section .section-content {
+      padding: 0 3rem 0 3rem;
+      flex-direction: column;
+    }
+
+    .homepage-section .section-text {
+      margin-bottom: 100px;
+      margin-right: 0;
+      max-width: none;
+    }
+  }
+
+  @media screen and (max-width: 700px) {
+    .homepage-section {
+      margin-bottom: 20px;
+    }
+
+    .homepage-section .section-content {
+      padding: 50px 1rem 0 1rem;
+      flex-direction: column;
+    }
+
+    .homepage-section .section-text {
+      margin-bottom: 50px;
+    }
+
+    h1 {
+      font-size: 3rem;
+    }
+  }
+</style>

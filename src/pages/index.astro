@@ -1,18 +1,16 @@
 ---
-import Layout from "../layouts/Layout.astro";
+import HomepageLayout from "../layouts/HomepageLayout.astro";
 import SectionNav from "../components/SectionNav.astro";
-import Hero from "../components/Hero.astro";
+import Intro from "../components/Intro.astro";
 import About from "../components/About.astro";
 import Projects from "../components/Projects.astro";
 import Form from "../components/Form.astro";
 ---
 
-<Layout title="Monika Dybalska">
-  <main>
-    <SectionNav />
-    <Hero />
-    <About />
-    <Projects />
-    <Form />
-  </main>
-</Layout>
+<HomepageLayout>
+  <SectionNav />
+  <Intro />
+  <About />
+  <Projects />
+  <Form />
+</HomepageLayout>

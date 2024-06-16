@@ -2,7 +2,7 @@
 import Anchor from "./Anchor.astro";
 ---
 
-<section class="hero">
+<section id="intro" class="homepage-section">
   <div class="section-content">
     <div class="section-text">
       <p>Hi there, my name is</p>
@@ -27,3 +27,31 @@ import Anchor from "./Anchor.astro";
     <img src="/monika.png" class="hero-image" />
   </div>
 </section>
+
+<style>
+  .subtitle {
+    margin-bottom: 20px;
+  }
+
+  .hero-image {
+    border-radius: 50%;
+    width: 300px;
+  }
+
+  .hero-links {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .socials {
+    height: 40px;
+    align-self: center;
+  }
+
+  @media screen and (max-width: 700px) {
+    .hero-image {
+      width: 200px;
+    }
+  }
+</style>
