@@ -1,9 +1,18 @@
 <nav class="section-nav">
   <ul class="nav-bullets">
-    <li><button class="nav-bullet selected"></button></li>
-    <li><button class="nav-bullet"></button></li>
-    <li><button class="nav-bullet"></button></li>
-    <li><button class="nav-bullet"></button></li>
+    <li>
+      <div class="nav-label">Intro</div><button class="nav-bullet selected"
+      ></button>
+    </li>
+    <li>
+      <div class="nav-label">About</div><button class="nav-bullet"></button>
+    </li>
+    <li>
+      <div class="nav-label">Projects</div><button class="nav-bullet"></button>
+    </li>
+    <li>
+      <div class="nav-label">Contact</div><button class="nav-bullet"></button>
+    </li>
   </ul>
 </nav>
 
@@ -11,7 +20,7 @@
   .section-nav {
     position: fixed;
     right: 0;
-    top: 50%;
+    top: 40%;
     width: max-content;
     float: right;
   }
@@ -29,6 +38,33 @@
 
   .nav-bullets li {
     width: fit-content;
+    position: relative;
+  }
+
+  .nav-label {
+    position: absolute;
+    right: 50%;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    background-color: #61dafb;
+    color: black;
+    border: 1px solid black;
+    border-radius: 1rem 0 0 1rem;
+    height: 30px;
+    box-sizing: border-box;
+    vertical-align: middle;
+    text-transform: uppercase;
+    max-width: 0%;
+    padding: 0;
+    transition: all 1s;
+    overflow: hidden;
+  }
+
+  .nav-label.hovered {
+    max-width: 100px;
+    right: 70%;
+    padding: 0.2rem 1.5rem 0.2rem 0.5rem;
   }
 
   .nav-bullet {
@@ -41,6 +77,7 @@
     cursor: pointer;
     transition: transform 0.2s 100ms;
     transition-delay: 100ms;
+    box-sizing: border-box;
   }
 
   .nav-bullet.selected {
@@ -66,6 +103,7 @@
 <script>
   const sections = document.querySelectorAll("section");
   const buttons = document.querySelectorAll(".nav-bullet");
+  const labels = document.querySelectorAll(".nav-label");
 
   const handleButtonClick = function (
     currentButton: Element,
@@ -73,6 +111,16 @@
   ) {
     currentSection.scrollIntoView({ behavior: "smooth" });
     handleButtonChange(currentButton);
+  };
+
+  const handleButtonHover = function (
+    currentButton: Element,
+    currentLabel: Element
+  ) {
+    currentLabel.classList.add("hovered");
+    currentButton.addEventListener("mouseleave", () => {
+      currentLabel.classList.remove("hovered");
+    });
   };
 
   const handleButtonChange = function (currentButton: Element) {
@@ -87,6 +135,10 @@
   for (let i = 0; i < buttons.length; i++) {
     buttons[i].addEventListener("click", () => {
       handleButtonClick(buttons[i], sections[i]);
+    });
+
+    buttons[i].addEventListener("mouseover", () => {
+      handleButtonHover(buttons[i], labels[i]);
     });
   }
 
