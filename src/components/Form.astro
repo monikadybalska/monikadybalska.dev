@@ -1,0 +1,43 @@
+---
+import Button from "./Button.astro";
+---
+
+<section id="contact">
+  <div class="section-content cols">
+    <h2>Get in touch</h2>
+    <p>Got a question or a project idea? Let's talk!</p>
+    <form>
+      <label for="name">Your name</label>
+      <input type="text" id="name" class="form-field" />
+      <label for="email">Your email</label>
+      <input type="email" id="email" class="form-field" />
+      <label for="message">Your message</label>
+      <textarea id="message" class="form-field" rows="8"></textarea>
+      <div class="button-row">
+        <Button text="Contact me" variant="primary" type="submit" />
+      </div>
+    </form>
+  </div>
+</section>
+
+<style>
+  form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 660px;
+  }
+
+  .form-field {
+    margin-bottom: 1rem;
+    background-color: transparent;
+    border: black solid 1px;
+    font-family: "Drogowskaz";
+    font-size: 1rem;
+  }
+
+  .button-row {
+    display: flex;
+    justify-content: center;
+  }
+</style>

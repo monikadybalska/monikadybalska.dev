@@ -1,0 +1,109 @@
+<nav class="section-nav">
+  <ul class="nav-bullets">
+    <li><button class="nav-bullet selected"></button></li>
+    <li><button class="nav-bullet"></button></li>
+    <li><button class="nav-bullet"></button></li>
+    <li><button class="nav-bullet"></button></li>
+  </ul>
+</nav>
+
+<style>
+  .section-nav {
+    position: fixed;
+    right: 0;
+    top: 50%;
+    width: max-content;
+    float: right;
+  }
+
+  .nav-bullets {
+    list-style-type: none;
+    list-style: none;
+    margin: 0;
+    padding: 10px;
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .nav-bullets li {
+    width: fit-content;
+  }
+
+  .nav-bullet {
+    background-color: black;
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    border: 1px solid black;
+    transform: rotate(45deg);
+    cursor: pointer;
+    transition: transform 0.2s 100ms;
+    transition-delay: 100ms;
+  }
+
+  .nav-bullet.selected {
+    background-color: #61dafb;
+    transform: rotate(90deg);
+  }
+
+  @media screen and (max-width: 1300px) {
+    .section-nav {
+      position: sticky;
+      top: 0;
+      left: 45%;
+      width: max-content;
+      float: none;
+    }
+
+    .nav-bullets {
+      flex-direction: row;
+    }
+  }
+</style>
+
+<script>
+  const sections = document.querySelectorAll("section");
+  const buttons = document.querySelectorAll(".nav-bullet");
+
+  const handleButtonClick = function (
+    currentButton: Element,
+    currentSection: HTMLElement
+  ) {
+    currentSection.scrollIntoView({ behavior: "smooth" });
+    handleButtonChange(currentButton);
+  };
+
+  const handleButtonChange = function (currentButton: Element) {
+    buttons.forEach((button) => {
+      if (button !== currentButton) {
+        button.classList.remove("selected");
+      }
+    });
+    currentButton.classList.add("selected");
+  };
+
+  for (let i = 0; i < buttons.length; i++) {
+    buttons[i].addEventListener("click", () => {
+      handleButtonClick(buttons[i], sections[i]);
+    });
+  }
+
+  const timeouts: { [id: number]: number } = {};
+  for (let i = 0; i < sections.length; i++) {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          timeouts[i] = setTimeout(() => handleButtonChange(buttons[i]), 300);
+        } else {
+          clearTimeout(timeouts[i]);
+        }
+      },
+      {
+        threshold: 0.8,
+      }
+    );
+    observer.observe(sections[i]);
+  }
+</script>

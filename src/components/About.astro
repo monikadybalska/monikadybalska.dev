@@ -1,0 +1,113 @@
+<section id="about">
+  <div class="section-content">
+    <div class="section-text">
+      <h2 class="section-title">About me</h2>
+      <p>
+        I'm a self-taught front-end developer, currently honing my skills by
+        working on my first non-profit website development project. My areas of
+        specialty are:
+      </p>
+      <ul class="specialties">
+        <li>
+          Responsive, mobile-first web design, be it with vanilla CSS or
+          TailwindCSS
+        </li>
+        <li>
+          Typescript, from essentials such as generic types to advanced matters
+          such as generic constraints
+        </li>
+        <li>
+          NextJS and performant React that leverages all React ^18.0 has to
+          offer
+        </li>
+      </ul>
+      <p>
+        Currently, I'm on the lookout for opportunities that will help me expand
+        my knowledge and build performant, accessible websites that are a joy to
+        use and a breeze to maintain.
+      </p>
+    </div>
+    <div class="tech-icons">
+      <img src="react.svg" class="icon" />
+      <img src="next.svg" class="icon" />
+      <img src="typescript.svg" class="icon" />
+      <img src="tailwind.svg" class="icon" />
+    </div>
+  </div>
+</section>
+
+<style>
+  .icon {
+    width: 6rem;
+    max-width: 100px;
+    filter: drop-shadow(10px 10px 4px rgb(89, 89, 89));
+    animation: maintain 20s linear infinite;
+  }
+
+  .tech-icons {
+    width: 20rem;
+    height: 20rem;
+    max-width: 300px;
+    max-height: 300px;
+    position: relative;
+    flex-shrink: 0;
+    border: solid black 0.5px;
+    border-radius: 50%;
+    -webkit-animation: spin-right 20s linear infinite;
+    animation: spin-right 20s linear infinite;
+  }
+
+  .icon:nth-of-type(1) {
+    position: absolute;
+    top: -18%;
+    left: 35%;
+  }
+
+  .icon:nth-of-type(2) {
+    position: absolute;
+    top: 35%;
+    left: -18%;
+  }
+
+  .icon:nth-of-type(3) {
+    position: absolute;
+    top: 35%;
+    right: -18%;
+  }
+
+  .icon:nth-of-type(4) {
+    position: absolute;
+    bottom: -10%;
+    left: 35%;
+  }
+
+  @keyframes maintain {
+    0% {
+      transform: rotate(0);
+    }
+
+    100% {
+      transform: rotate(-360deg);
+    }
+  }
+
+  @-webkit-keyframes spin-right {
+    100% {
+      -webkit-transform: rotate(360deg);
+      -moz-transform: rotate(360deg);
+      -ms-transform: rotate(360deg);
+      -o-transform: rotate(360deg);
+      transform: rotate(360deg);
+    }
+  }
+
+  @media screen and (max-width: 700px) {
+    .icon {
+      max-width: 50px;
+    }
+    .tech-icons {
+      max-width: 150px;
+      max-height: 150px;
+    }
+  }
+</style>
