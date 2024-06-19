@@ -7,41 +7,47 @@ import Card from "./Card.astro";
     <h2 class="section-title">Projects</h2>
     <div class="cards">
       <Card
-        title="PatroniteDB"
-        href="projects/patronitedb"
         image="patronitedb.jpg"
         tags={["Tanstack Query", "Tanstack Router", "Material UI"]}
-        description="A sortable, filtered database of Patronite authors and subscriptions"
         label="Coming soon"
-      />
+      >
+        <h3 slot="title">PatroniteDB</h3>
+        <p slot="description">
+          A sortable, filtered database of Patronite authors and subscriptions
+        </p>
+      </Card>
       <Card
-        title="Visit Jericho"
         href="projects/visitjericho"
         image="visitjerichothumbnail.jpg"
         tags={["Next.js", "Tailwind CSS", "GraphQL"]}
-        description="A travel guide website for a non-profit project with Tech To The Rescue"
         label="Latest"
-      />
+      >
+        <h3 slot="title">Visit Jericho</h3>
+        <p slot="description">
+          A travel guide website for a non-profit project with Tech To The
+          Rescue
+        </p>
+      </Card>
     </div>
   </div>
-</section>
 
-<style>
-  .cards {
-    margin-top: 30px;
-    display: flex;
-    width: 100%;
-    gap: 30px;
-  }
-
-  .section-title {
-    width: 100%;
-    text-align: start;
-  }
-
-  @media screen and (max-width: 700px) {
+  <style>
     .cards {
-      flex-direction: column;
+      margin-top: 30px;
+      display: flex;
+      width: 100%;
+      gap: 30px;
     }
-  }
-</style>
+
+    .section-title {
+      width: 100%;
+      text-align: start;
+    }
+
+    @media screen and (max-width: 700px) {
+      .cards {
+        flex-direction: column;
+      }
+    }
+  </style>
+</section>

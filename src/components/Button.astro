@@ -21,7 +21,7 @@ const { text, variant = "primary", type } = Astro.props;
     text-transform: uppercase;
     font-family: "Drogowskaz";
     padding: 0.5rem 1rem 0.5rem 1rem;
-    outline: 0;
+    /* outline: 0; */
     border: 0;
     cursor: pointer;
     box-sizing: border-box;
@@ -57,8 +57,9 @@ const { text, variant = "primary", type } = Astro.props;
   }
 
   button.primary:hover,
-  button.text:hover {
+  button.primary:focus {
     color: #61dafb;
+    box-shadow: 0 0 0.5rem 0.1rem rgb(97, 218, 251, 1);
   }
 </style>
 

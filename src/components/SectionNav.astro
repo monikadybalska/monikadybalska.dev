@@ -13,6 +13,9 @@
     <li>
       <div class="nav-label">Contact</div><button class="nav-bullet"></button>
     </li>
+    <li>
+      <div class="nav-label">Contact</div><button class="nav-bullet"></button>
+    </li>
   </ul>
 </nav>
 
@@ -113,6 +116,10 @@
     currentButton.addEventListener("mouseleave", () => {
       currentLabel.classList.remove("hovered");
     });
+
+    currentButton.addEventListener("focusout", () => {
+      currentLabel.classList.remove("hovered");
+    });
   };
 
   const handleButtonChange = function (currentButton: Element) {
@@ -130,6 +137,10 @@
     });
 
     buttons[i].addEventListener("mouseover", () => {
+      handleButtonHover(buttons[i], labels[i]);
+    });
+
+    buttons[i].addEventListener("focus", () => {
       handleButtonHover(buttons[i], labels[i]);
     });
   }
