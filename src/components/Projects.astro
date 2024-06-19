@@ -8,13 +8,17 @@ import Card from "./Card.astro";
     <div class="cards">
       <Card
         title="PatroniteDB"
+        href="projects/patronitedb"
         image="patronitedb.jpg"
+        tags={["Tanstack Query", "Tanstack Router", "Material UI"]}
         description="A sortable, filtered database of Patronite authors and subscriptions"
         label="Coming soon"
       />
       <Card
         title="Visit Jericho"
-        image="visitjericho.jpg"
+        href="projects/visitjericho"
+        image="visitjerichothumbnail.jpg"
+        tags={["Next.js", "Tailwind CSS", "GraphQL"]}
         description="A travel guide website for a non-profit project with Tech To The Rescue"
         label="Latest"
       />
@@ -28,6 +32,11 @@ import Card from "./Card.astro";
     display: flex;
     width: 100%;
     gap: 30px;
+  }
+
+  .section-title {
+    width: 100%;
+    text-align: start;
   }
 
   @media screen and (max-width: 700px) {

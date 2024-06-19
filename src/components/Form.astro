@@ -4,8 +4,10 @@ import Button from "./Button.astro";
 
 <section id="contact" class="homepage-section">
   <div class="section-content cols">
-    <h2>Get in touch</h2>
-    <p>Got a question or a project idea? Let's talk!</p>
+    <div class="section-text">
+      <h2>Get in touch</h2>
+      <p>Got a question or a project idea? Let's talk!</p>
+    </div>
     <form>
       <label for="name">Your name</label>
       <input type="text" id="name" class="form-field" />
@@ -21,6 +23,10 @@ import Button from "./Button.astro";
 </section>
 
 <style>
+  .section-content.cols {
+    align-items: center;
+  }
+
   form {
     display: flex;
     flex-direction: column;
@@ -34,6 +40,7 @@ import Button from "./Button.astro";
     border: black solid 1px;
     font-family: "Drogowskaz";
     font-size: 1rem;
+    max-width: 660px;
   }
 
   .button-row {

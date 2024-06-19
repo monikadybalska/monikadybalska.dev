@@ -15,54 +15,34 @@ const { text, variant = "primary", type } = Astro.props;
     height: fit-content;
     width: fit-content;
     font-size: 1rem;
+    position: relative;
+    overflow: hidden;
+    transition: all 400ms;
+    text-transform: uppercase;
+    font-family: "Drogowskaz";
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    outline: 0;
+    border: 0;
+    cursor: pointer;
+    box-sizing: border-box;
   }
 
   button.primary {
-    position: relative;
-    overflow: hidden;
-    transition: all 400ms;
     background-color: black;
     color: white;
-    text-transform: uppercase;
-    font-family: "Drogowskaz";
-    padding: 0.5rem 1rem 0.5rem 1rem;
-    outline: 0;
-    border: 0;
-    box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.3);
-    cursor: pointer;
-    box-sizing: border-box;
+    box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0);
   }
 
   button.secondary {
-    position: relative;
-    overflow: hidden;
-    transition: all 400ms;
     background-color: transparent;
     color: black;
-    text-transform: uppercase;
-    font-family: "Drogowskaz";
-    padding: 0.5rem 1rem 0.5rem 1rem;
-    outline: 0;
     border: solid black;
-    box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.3);
-    cursor: pointer;
-    box-sizing: border-box;
   }
 
   button.text {
-    position: relative;
-    overflow: hidden;
-    transition: all 400ms;
     background-color: transparent;
     color: inherit;
-    text-transform: uppercase;
-    font-family: "Drogowskaz";
     padding: 0;
-    outline: 0;
-    border: 0;
-    box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.3);
-    cursor: pointer;
-    box-sizing: border-box;
     text-align: start;
   }
 
@@ -83,26 +63,7 @@ const { text, variant = "primary", type } = Astro.props;
 </style>
 
 <script>
-  function createRipple(event: MouseEvent) {
-    const button = event.currentTarget as HTMLButtonElement;
-    const btnRect = button.getBoundingClientRect();
-
-    const circle = document.querySelector("span") as HTMLSpanElement;
-    const diameter = Math.max(btnRect.width, btnRect.height);
-    const radius = diameter / 2;
-    circle.style.width = `${diameter}px`;
-    circle.style.height = `${diameter}px`;
-    circle.style.left = `${event.clientX - (btnRect.left + radius)}px`;
-    circle.style.top = `${event.clientY - (btnRect.top + radius)}px`;
-
-    const ripple = document.querySelectorAll("button span")[0];
-
-    if (ripple) {
-      ripple.remove();
-    }
-
-    button.appendChild(circle);
-  }
+  import { createRipple } from "../../lib/functions";
 
   const buttons = document.querySelectorAll("button");
   for (const button of buttons) {

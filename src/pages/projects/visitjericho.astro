@@ -1,7 +1,86 @@
 ---
-import Layout from "../../layouts/BaseLayout.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
 ---
 
-<Layout title="Monika Dybalska">
-  <h1>Visit Jericho</h1>
-</Layout>
+<BaseLayout title="Monika Dybalska">
+  <main>
+    <a href="/">Back to home</a>
+    <h1>Visit Jericho</h1>
+    <div class="summary">
+      <p class="summary-text">
+        Visit Jericho is a travel guide website for the city of Jericho,
+        developed on the request of the non-governmental organisation Mosaic
+        Centre Jericho. I designed and built this website from scratch with
+        Figma, Next.js, GraphQL, and WordPress.
+      </p>
+      <div class="tech-stack">
+        <h2>Tech stack</h2>
+        <ul>
+          <li>Next.js</li>
+          <li>Tailwind CSS</li>
+          <li>GraphQL</li>
+          <li>WordPress</li>
+        </ul>
+      </div>
+    </div>
+    <img src="/visitjericho.jpg" class="main-image" />
+  </main>
+</BaseLayout>
+
+<style>
+  main {
+    padding: 10rem 15rem 10rem 15rem;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  .summary {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .summary-text {
+    max-width: 50%;
+  }
+
+  .summary h2 {
+    font-family: "Drogowskaz";
+    font-size: 2rem;
+  }
+
+  ul {
+    padding: 0;
+  }
+
+  li {
+    list-style-position: inside;
+  }
+
+  .main-image {
+    border-radius: 1rem;
+    box-shadow: 0 0.2rem 0.5rem 0.1rem rgb(0, 0, 0, 0.2);
+  }
+
+  .specialties {
+    list-style-type: square;
+  }
+
+  .icon {
+    width: 6rem;
+    max-width: 100px;
+    filter: drop-shadow(10px 10px 4px rgb(89, 89, 89));
+  }
+
+  @media screen and (max-width: 1300px) {
+    main {
+      padding: 0 3rem 0 3rem;
+    }
+  }
+
+  @media screen and (max-width: 700px) {
+    main {
+      padding: 50px 1rem 0 1rem;
+    }
+  }
+</style>
