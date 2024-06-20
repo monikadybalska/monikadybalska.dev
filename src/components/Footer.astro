@@ -37,7 +37,11 @@ import Anchor from "./Anchor.astro";
     scroll-snap-align: start;
     justify-content: space-between;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
+  }
+
+  .copyright {
+    max-width: 50%;
   }
 
   .footer-links {
@@ -49,5 +53,23 @@ import Anchor from "./Anchor.astro";
   .socials {
     height: 40px;
     align-self: center;
+  }
+
+  @media screen and (max-width: 1300px) {
+    footer {
+      padding: 0 10rem 0 3rem;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+
+  @media screen and (max-width: 700px) {
+    footer {
+      scroll-snap-align: unset;
+      padding: 3rem 1rem 3rem 1rem;
+      align-items: center;
+      justify-content: space-between;
+      min-height: fit-content;
+    }
   }
 </style>

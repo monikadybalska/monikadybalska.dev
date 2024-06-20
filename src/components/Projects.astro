@@ -12,7 +12,7 @@ import Card from "./Card.astro";
         label="Coming soon"
       >
         <h3 slot="title">PatroniteDB</h3>
-        <p slot="description">
+        <p slot="description" class="description">
           A sortable, filtered database of Patronite authors and subscriptions
         </p>
       </Card>
@@ -23,7 +23,7 @@ import Card from "./Card.astro";
         label="Latest"
       >
         <h3 slot="title">Visit Jericho</h3>
-        <p slot="description">
+        <p slot="description" class="description">
           A travel guide website for a non-profit project with Tech To The
           Rescue
         </p>
@@ -44,7 +44,11 @@ import Card from "./Card.astro";
       text-align: start;
     }
 
-    @media screen and (max-width: 700px) {
+    .description {
+      flex-grow: 2;
+    }
+
+    @media screen and (max-width: 1300px) {
       .cards {
         flex-direction: column;
       }

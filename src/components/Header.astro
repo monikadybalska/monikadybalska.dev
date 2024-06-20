@@ -13,5 +13,24 @@ import Logo from "./Logo.astro";
     padding: 1rem 15rem 0 15rem;
     height: 50px;
     align-items: start;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  @media screen and (max-width: 1300px) {
+    header {
+      padding: 1rem 0 0 0;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  @media screen and (max-width: 700px) {
+    header {
+      scroll-snap-align: unset;
+      padding: 1rem 0 0 0;
+      align-items: center;
+      justify-content: center;
+    }
   }
 </style>

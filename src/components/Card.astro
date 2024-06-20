@@ -95,6 +95,8 @@ const { href, image, tags, label, variant = "filled" } = Astro.props;
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
+    flex-grow: 1;
+    align-items: start;
   }
 
   .tag {
@@ -103,6 +105,7 @@ const { href, image, tags, label, variant = "filled" } = Astro.props;
     padding: 0.2rem 0.5rem 0.2rem 0.5rem;
     border-radius: 1rem;
     border: #61dafb solid 1px;
+    height: fit-content;
   }
 
   .card-container.with-link:hover {
