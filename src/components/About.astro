@@ -3,9 +3,14 @@
     <div class="section-text">
       <h2 class="section-title">About me</h2>
       <p>
-        I'm a self-taught front-end developer, currently honing my skills by
-        working on my first non-profit website development project. My areas of
-        specialty are:
+        As a self-taught frontend developer, I leverage my background in
+        philosophy to bring a unique perspective to web development. My academic
+        training honed my analytical and problem-solving skills, allowing me to
+        write clean, performant code that tackles complex challenges. Outside of
+        coding, I cultivate my creativity through writing, crocheting, and a
+        fascination with design and architecture. This blend fosters an approach
+        that prioritizes not just functionality, but also user experience and
+        visual appeal. I specialise in:
       </p>
       <ul class="specialties">
         <li>
@@ -22,16 +27,18 @@
         </li>
       </ul>
       <p>
-        Currently, I'm on the lookout for opportunities that will help me expand
-        my knowledge and build performant, accessible websites that are a joy to
-        use and a breeze to maintain.
+        I'm a dedicated learner, continuously expanding my skillset and seeking
+        opportunities to collaborate on impactful web projects. Let's build
+        something great together!
       </p>
     </div>
     <div class="tech-icons">
-      <img src="react.svg" class="icon" />
-      <img src="next.svg" class="icon" />
-      <img src="typescript.svg" class="icon" />
-      <img src="tailwind.svg" class="icon" />
+      <div class="tech-icons-circle">
+        <img src="react.svg" class="icon" />
+        <img src="next.svg" class="icon" />
+        <img src="typescript.svg" class="icon" />
+        <img src="tailwind.svg" class="icon" />
+      </div>
     </div>
   </div>
 </section>
@@ -49,6 +56,11 @@
   }
 
   .tech-icons {
+    display: flex;
+    align-items: center;
+  }
+
+  .tech-icons-circle {
     width: 20rem;
     height: 20rem;
     max-width: 300px;
@@ -109,7 +121,7 @@
     .icon {
       max-width: 50px;
     }
-    .tech-icons {
+    .tech-icons-circle {
       max-width: 150px;
       max-height: 150px;
     }

@@ -28,12 +28,13 @@ const { text, href, variant = "text" } = Astro.props;
   a.primary {
     background-color: black;
     color: white;
+    border: solid black 1px;
   }
 
   a.secondary {
     background-color: transparent;
     color: black;
-    border: solid black;
+    border: solid black 1px;
   }
 
   a.text {
@@ -56,6 +57,12 @@ const { text, href, variant = "text" } = Astro.props;
   a.primary:hover,
   a.primary:focus {
     color: #61dafb;
+  }
+
+  a.primary:hover,
+  a.secondary:hover,
+  a.primary:focus,
+  a.secondary:focus {
     box-shadow: 0 0 0.5rem 0.1rem rgb(97, 218, 251, 1);
   }
 

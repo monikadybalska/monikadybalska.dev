@@ -16,11 +16,16 @@ import Anchor from "./Anchor.astro";
     <p>
       This project uses the <a
         href="https://kroje.org/en/fonts/zaklad/"
+        target="_blank"
         class="zaklad">Zakład</a
-      > and <a href="https://kroje.org/en/fonts/zaklad/">Drogowskaz</a> fonts. Both
-      fonts are free, open-source, and inspired by 20th-century Polish typefaces.
-      If you're interested in checking out more Polish fonts, make sure to visit
-      the <a href="https://kroje.org/en/">Warsaw Types</a> project website.
+      > and <a
+        href="https://fontsinuse.com/typefaces/80608/drogowskaz"
+        target="_blank">Drogowskaz</a
+      > fonts. Both fonts are free, open-source, and inspired by 20th-century Polish
+      typefaces. If you're interested in checking out more fonts from my home country,
+      make sure to visit the <a href="https://kroje.org/en/" target="_blank"
+        >Warsaw Types</a
+      > project website.
     </p>
   </div>
   <div class="col links">
@@ -59,11 +64,12 @@ import Anchor from "./Anchor.astro";
     display: flex;
     flex-direction: column;
     gap: 2rem;
-    max-width: 50%;
+    max-width: 70%;
   }
 
   .links {
     color: #61dafb;
+    min-width: 70px;
   }
 
   .copyright {
@@ -102,7 +108,7 @@ import Anchor from "./Anchor.astro";
 
   @media screen and (max-width: 1300px) {
     footer {
-      padding: 0 10rem 0 3rem;
+      padding: 0 3rem 0 3rem;
       align-items: center;
       justify-content: space-between;
     }

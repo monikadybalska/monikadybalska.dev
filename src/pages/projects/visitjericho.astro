@@ -15,8 +15,8 @@ import Anchor from "../../components/Anchor.astro";
         <p>
           Visit Jericho is a travel guide website for the city of Jericho,
           developed on the request of the non-governmental organisation Mosaic
-          Centre Jericho. I designed and built this website from scratch with
-          Figma, Next.js, GraphQL, and WordPress.
+          Centre Jericho. I designed and built this website from scratch using
+          Next.js, TailwindCSS, GraphQL, and WordPress.
         </p>
         <div class="summary-sections">
           <Card variant="outlined">
@@ -36,28 +36,39 @@ import Anchor from "../../components/Anchor.astro";
             </ul>
           </Card>
         </div>
-        <Anchor
-          text="See live site"
-          href="https://beta.visitjericho.com"
-          variant="primary"
-        />
+        <div class="summary-sections">
+          <div class="link-container end">
+            <Anchor
+              text="View live site"
+              href="https://beta.visitjericho.com"
+              variant="primary"
+            />
+          </div>
+          <div class="link-container">
+            <Anchor
+              text="View source code"
+              href="https://github.com/monikadybalska/visitjericho"
+              variant="secondary"
+            />
+          </div>
+        </div>
       </div>
       <img src="/visitjerichothumbnail.jpg" class="main-image" />
     </section>
     <section>
       <h2>Background and goals</h2>
       <p>
-        For the past two months, I have collaborated with Tech To the Rescue a
-        website to promote the city of Jericho for a non-governmental
-        organisation Mosaic Centre Jericho. With the project being both
-        non-profit and me being a relative beginner in frontend development, I
-        found the task of choosing the right tech stack both rewarding and
-        fairly challenging. We knew what it needed to be and what it needed to
-        have:
+        When I came across Mosaic Centre Jericho's project brief on the Tech To
+        The Rescue website, I got excited about the possibility of helping a
+        passionate travel guide promote his city. Since Mosaic Centre Jericho
+        created the content, I had full control over the design and development
+        process and I wanted to make sure that the site balanced a modern feel
+        for the users with the familiarity and ease of use for the website
+        administrators. In short, I had three main goals in mind:
       </p>
       <ul>
         <li>
-          Fast, performant, and SEO-optimised to provide the best user
+          Speed, performance, and SEO optimisation to provide the best user
           experience
         </li>
         <li>Headless CMS for the best performance and flexibility</li>
@@ -112,7 +123,7 @@ import Anchor from "../../components/Anchor.astro";
           </div>
           <div class="tech-stack-category">
             <h3>Media optimisation</h3>
-            <div>
+            <div class="logos">
               <img
                 src="/aws-white.svg"
                 alt="AWS Cloud logo"
@@ -128,7 +139,7 @@ import Anchor from "../../components/Anchor.astro";
           </div>
           <div class="tech-stack-category">
             <h3>Hosting</h3>
-            <div>
+            <div class="logos">
               <img
                 src="/aws-white.svg"
                 alt="AWS Cloud logo"
@@ -142,25 +153,58 @@ import Anchor from "../../components/Anchor.astro";
             </div>
           </div>
         </div>
-        <p class="col">
-          With the Next.js App Router, I was able to take full advantage of
-          React's latest rendering features, optimise performance, and implement
-          good SEO practices. Tailwind CSS made styling both quick and
-          consistent and worked seamlessly with component libraries such as
-          Material Tailwind or Radix UI. GraphQL made it possible to fetch data
-          from the WordPress CMS — one of our key requirements.
-        </p>
+        <div class="col">
+          <p>
+            To meet the project goals, I had to settle on a modern and reliable
+            tech stack. WordPress as the CMS was a given, so I began a search
+            for a compatible frontend/fullstack framework. With the Next.js App
+            Router, I was able easily fetch the CMS data with GraphQL, while
+            optimising performance.
+          </p>
+          <p>
+            As for the design, Tailwind CSS made styling both quick and
+            consistent and worked seamlessly with component libraries such as
+            Material Tailwind or Radix UI.
+          </p>
+          <p>
+            To test my code, I used Jest for unit testing (aside from the
+            not-yet-supported server components) and Playwright for E2E testing.
+            I also chose GitHub and GitHub actions for CI/CD, which allowed me
+            to introduce feature branches and run tests on commits.
+          </p>
+          <p>
+            Netlify's integration with Next.js made deployment a breeze, and
+            Amazon Lightsail allowed us to link our WordPress instance in
+            minutes. To further optimise media, we also used Amazon Cloudfront
+            and S3.
+          </p>
+        </div>
       </div>
     </section>
     <section>
       <h2>Challenges</h2>
       <div class="cols">
-        <p class="col">
-          There were two areas that proved the most challenging: organising the
-          code and integrating different technologies, some of which not
-          necessarily designed to work well with the others.
-        </p>
-        <div></div>
+        <div class="col">
+          <h3>Code organisation</h3>
+          <p>
+            As for code organisation, I prioritised clarity and reusability. I
+            used the Material Tailwind component library to ensure consistency.
+            Since I needed to make some tweaks to meet the specific needs of the
+            design, I created component directories with varying scopes next to
+            my Next.js route directories.
+          </p>
+        </div>
+        <div class="col">
+          <h3>Integrating different technologies</h3>
+          <p>
+            Some of the services we initially considered due to competetive
+            pricing had not yet introduced full integration with RSC and the App
+            Router. To take advantage of Netlify's uniquely amazing integration
+            without sacrificing cost-efficiency, I lowered the cost on the
+            deployment side by pre-optimising images with Amazon Cloudfront and
+            S3.
+          </p>
+        </div>
       </div>
     </section>
   </main>
@@ -229,10 +273,38 @@ import Anchor from "../../components/Anchor.astro";
     list-style-position: inside;
   }
 
+  .challenges-images {
+    container-type: size;
+  }
+
+  .challenges-image {
+    position: absolute;
+  }
+
   .main-image {
     border: solid black 1px;
     max-width: 100%;
     box-sizing: border-box;
+  }
+
+  #organisation {
+    width: 150px;
+    z-index: 50;
+    border-radius: 0.5rem;
+  }
+
+  #components {
+    top: 20%;
+    left: 20%;
+    width: 400px;
+  }
+
+  .link-container {
+    display: flex;
+  }
+
+  .link-container.end {
+    justify-content: end;
   }
 
   .icon {
@@ -251,6 +323,11 @@ import Anchor from "../../components/Anchor.astro";
     border: 1px solid #61dafb;
   }
 
+  .logos {
+    display: flex;
+    justify-content: end;
+  }
+
   .logo {
     max-height: 15px;
     height: 2rem;
@@ -258,7 +335,7 @@ import Anchor from "../../components/Anchor.astro";
 
   .logo-icon {
     border-radius: 50%;
-    width: 30px;
+    width: 35px;
   }
 
   .logo.small {
