@@ -8,7 +8,7 @@ import Button from "./Button.astro";
       <h2>Get in touch</h2>
       <p>Got a question or a project idea? Let's talk!</p>
     </div>
-    <form>
+    <form name="contact" method="POST" data-netlify="true">
       <label for="name">Your name</label>
       <input type="text" id="name" class="form-field" />
       <label for="email">Your email</label>
@@ -24,6 +24,10 @@ import Button from "./Button.astro";
 
 <style>
   .section-content.cols {
+    align-items: center;
+  }
+
+  .section-text {
     align-items: center;
   }
 

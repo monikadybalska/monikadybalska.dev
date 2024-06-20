@@ -3,34 +3,79 @@ import Logo from "./Logo.astro";
 ---
 
 <header>
+  <button class="skip"> Skip to navigation</button>
   <Logo />
 </header>
 
 <style>
   header {
     display: flex;
+    flex-direction: row-reverse;
     scroll-snap-align: start;
     padding: 1rem 15rem 0 15rem;
     height: fit-content;
     align-items: start;
     max-width: 100%;
     box-sizing: border-box;
+    justify-content: space-between;
+  }
+
+  .skip {
+    height: fit-content;
+    width: fit-content;
+    font-size: 1rem;
+    position: relative;
+    overflow: hidden;
+    transition: all 400ms;
+    text-transform: uppercase;
+    font-family: "Drogowskaz";
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    border: 0;
+    cursor: pointer;
+    box-sizing: border-box;
+    background-color: transparent;
+    color: black;
+    border: solid black;
+    opacity: 0;
+  }
+
+  .skip:focus {
+    opacity: 1;
   }
 
   @media screen and (max-width: 1300px) {
     header {
-      padding: 1rem 0 0 0;
+      padding: 1rem 3rem 3rem 3rem;
       align-items: center;
-      justify-content: center;
+      justify-content: space-between;
     }
   }
 
   @media screen and (max-width: 700px) {
     header {
       scroll-snap-align: unset;
-      padding: 1rem 0 0 0;
+      padding: 1rem 1rem 1rem 1rem;
       align-items: center;
-      justify-content: center;
+      justify-content: space-between;
+      flex-direction: row;
+    }
+
+    .skip {
+      display: none;
     }
   }
 </style>
+
+<script>
+  const button = document.querySelector(".skip");
+  button?.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    const nav = document.querySelector(".nav-bullet") as HTMLElement;
+
+    if (nav) {
+      nav.scrollIntoView();
+      nav.focus();
+    }
+  });
+</script>

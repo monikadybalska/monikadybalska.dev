@@ -1,17 +1,21 @@
 <nav class="section-nav">
   <ul class="nav-bullets">
     <li>
-      <div class="nav-label">Intro</div><button class="nav-bullet selected"
-      ></button>
+      <div class="nav-label" id="intro-button">Intro</div><button
+        class="nav-bullet selected"></button>
     </li>
     <li>
-      <div class="nav-label">About</div><button class="nav-bullet"></button>
+      <div class="nav-label">About</div><button
+        class="nav-bullet"
+        id="about-button"></button>
     </li>
     <li>
-      <div class="nav-label">Projects</div><button class="nav-bullet"></button>
+      <div class="nav-label" id="projects-button">Projects</div><button
+        class="nav-bullet"></button>
     </li>
     <li>
-      <div class="nav-label">Contact</div><button class="nav-bullet"></button>
+      <div class="nav-label" id="contact-button">Contact</div><button
+        class="nav-bullet"></button>
     </li>
   </ul>
 </nav>
@@ -110,6 +114,9 @@
 
   const handleButtonClick = function (currentIndex: number) {
     sections[currentIndex].scrollIntoView({ behavior: "smooth" });
+    const focusable =
+      sections[currentIndex].querySelectorAll("button, a, input");
+    (focusable[0] as HTMLElement)?.focus();
     handleButtonChange(currentIndex);
   };
 
