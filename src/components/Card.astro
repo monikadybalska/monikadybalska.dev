@@ -11,7 +11,7 @@ const { href, image, tags, label, variant = "filled" } = Astro.props;
 ---
 
 <div class:list={["card-container", { "with-link": href }]}>
-  <a href={href} class="card-link"></a>
+  {href && <a href={href} class="card-link" />}
   <div class:list={["card", variant || "filled"]}>
     <div class="card-header">
       <slot name="title" />

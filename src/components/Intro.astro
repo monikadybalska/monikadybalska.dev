@@ -8,29 +8,29 @@ import Anchor from "./Anchor.astro";
       <p>Hi there, my name is</p>
       <h1>Monika Dybalska</h1>
       <p class="subtitle">
-        I like building performant, user-friendly websites and applications.
+        I'm a frontend developer with a passion for building <span class="glow"
+          >unique</span
+        >, <span class="glow">user-centric</span>, and <span class="glow"
+          >performant</span
+        > websites and applications.
       </p>
-      <div class="hero-links">
-        <Anchor
-          text="Download CV"
-          href="cv-monika-dybalska.pdf"
-          variant="primary"
-        />
-        <a href="https://github.com/monikadybalska"
-          ><img src="github.svg" class="socials" /></a
-        >
-        <a href="https://www.linkedin.com/in/monika-dybalska/"
-          ><img src="linkedin.png" class="socials" /></a
-        >
-      </div>
     </div>
     <img src="/monika.png" class="hero-image" />
   </div>
 </section>
 
 <style>
+  p {
+    font-size: 1.5rem;
+  }
+
   .subtitle {
     margin-bottom: 20px;
+    font-size: 2rem;
+  }
+
+  .glow {
+    text-shadow: #61dafb 1px 0 10px;
   }
 
   .hero-image {

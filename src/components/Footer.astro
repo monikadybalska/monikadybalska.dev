@@ -4,11 +4,26 @@ import Anchor from "./Anchor.astro";
 ---
 
 <footer>
-  <div class="copyright">
-    <Logo />
-    <div>Designed and coded by Monika Dybalska</div>
+  <div class="col">
+    <div class="copyright">
+      <Logo />
+      <h2>Designed and built by Monika Dybalska with:</h2>
+    </div>
+    <div>
+      <img src="/astro.svg" alt="Astro logo" class="logo" />
+      <img src="/netlify.svg" alt="Netlify logo" class="logo" />
+    </div>
+    <p>
+      This project uses the <a
+        href="https://kroje.org/en/fonts/zaklad/"
+        class="zaklad">Zakład</a
+      > and <a href="https://kroje.org/en/fonts/zaklad/">Drogowskaz</a> fonts. Both
+      fonts are free, open-source, and inspired by 20th-century Polish typefaces.
+      If you're interested in checking out more Polish fonts, make sure to visit
+      the <a href="https://kroje.org/en/">Warsaw Types</a> project website.
+    </p>
   </div>
-  <div class="footer-links">
+  <div class="col links">
     <Anchor text="Resume" href="cv-monika-dybalska.pdf" variant="text" />
     <Anchor
       text="Email"
@@ -31,7 +46,7 @@ import Anchor from "./Anchor.astro";
 <style>
   footer {
     background-color: black;
-    color: #61dafb;
+    color: rgb(231, 231, 231);
     display: flex;
     padding: 0 15rem 0 15rem;
     scroll-snap-align: start;
@@ -40,14 +55,44 @@ import Anchor from "./Anchor.astro";
     min-height: 100vh;
   }
 
-  .copyright {
+  .col {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
     max-width: 50%;
   }
 
-  .footer-links {
+  .links {
+    color: #61dafb;
+  }
+
+  .copyright {
     display: flex;
-    flex-direction: column;
-    gap: 1rem;
+    gap: 3rem;
+    align-items: center;
+  }
+
+  .zaklad {
+    font-family: "Zaklad";
+    font-size: 1.17rem;
+  }
+
+  h2 {
+    font-family: "Drogowskaz";
+    font-size: 1.17rem;
+  }
+
+  a {
+    color: #61dafb;
+  }
+
+  a:hover,
+  a:focus {
+    text-decoration: underline;
+  }
+
+  .logo {
+    height: 3rem;
   }
 
   .socials {
@@ -70,6 +115,16 @@ import Anchor from "./Anchor.astro";
       align-items: center;
       justify-content: space-between;
       min-height: fit-content;
+      flex-direction: column;
+      gap: 4rem;
+    }
+
+    .col {
+      max-width: unset;
+    }
+
+    .links {
+      flex-direction: row;
     }
   }
 </style>

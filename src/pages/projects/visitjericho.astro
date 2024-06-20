@@ -70,7 +70,78 @@ import Anchor from "../../components/Anchor.astro";
     <section>
       <h2>Tech stack</h2>
       <div class="cols">
-        <div></div>
+        <div>
+          <div class="tech-stack-category">
+            <h3>Frontend</h3>
+            <img src="/nextjs-white.svg" alt="Next.js logo" class="logo" />
+          </div>
+          <div class="tech-stack-category">
+            <h3>Styling</h3>
+            <img
+              src="/tailwindcss-white.svg"
+              alt="TailwindCSS logo"
+              class="logo"
+            />
+          </div>
+          <div class="tech-stack-category">
+            <h3>Data</h3>
+            <img
+              src="/graphql-white.svg"
+              alt="GraphQL logo"
+              class="logo small"
+            />
+          </div>
+          <div class="tech-stack-category">
+            <h3>Testing</h3>
+            <div>
+              <img src="/jest.svg" alt="Jest logo" class="logo small" />
+              <img
+                src="/playwright.svg"
+                alt="Playwright logo"
+                class="logo small"
+              />
+            </div>
+          </div>
+          <div class="tech-stack-category">
+            <h3>CI/CD</h3>
+            <img src="/github-white.png" alt="GitHub logo" class="logo small" />
+          </div>
+          <div class="tech-stack-category">
+            <h3>Deployment</h3>
+            <img src="/netlify.svg" alt="Netlify logo" class="logo small" />
+          </div>
+          <div class="tech-stack-category">
+            <h3>Media optimisation</h3>
+            <div>
+              <img
+                src="/aws-white.svg"
+                alt="AWS Cloud logo"
+                class="logo-icon"
+              />
+              <img
+                src="/cloudfront.svg"
+                alt="Amazon Cloudfront logo"
+                class="logo-icon"
+              />
+              <img src="/s3.svg" alt="Amazon S3 logo" class="logo-icon" />
+            </div>
+          </div>
+          <div class="tech-stack-category">
+            <h3>Hosting</h3>
+            <div>
+              <img
+                src="/aws-white.svg"
+                alt="AWS Cloud logo"
+                class="logo-icon"
+              />
+              <img
+                src="/lightsail.svg"
+                alt="Amazon Lightsail logo"
+                class="logo-icon"
+              />
+            </div>
+          </div>
+        </div>
         <p class="col">
           With the Next.js App Router, I was able to take full advantage of
           React's latest rendering features, optimise performance, and implement
@@ -159,7 +230,6 @@ import Anchor from "../../components/Anchor.astro";
   }
 
   .main-image {
-    /* box-shadow: 0 0.2rem 0.5rem 0.1rem rgb(0, 0, 0, 0.2); */
     border: solid black 1px;
     max-width: 100%;
     box-sizing: border-box;
@@ -169,6 +239,30 @@ import Anchor from "../../components/Anchor.astro";
     width: 6rem;
     max-width: 100px;
     filter: drop-shadow(10px 10px 4px rgb(89, 89, 89));
+  }
+
+  .tech-stack-category {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: black;
+    color: white;
+    padding: 0.5rem;
+    border: 1px solid #61dafb;
+  }
+
+  .logo {
+    max-height: 15px;
+    height: 2rem;
+  }
+
+  .logo-icon {
+    border-radius: 50%;
+    width: 30px;
+  }
+
+  .logo.small {
+    max-height: 30px;
   }
 
   .nextjs::marker {
