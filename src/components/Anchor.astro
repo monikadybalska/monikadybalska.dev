@@ -8,7 +8,7 @@ interface Props {
 const { text, href, variant = "text" } = Astro.props;
 ---
 
-<a href={href} class={variant}>{text}<span></span></a>
+<a href={href} target="_blank" class={variant}>{text}<span></span></a>
 
 <style>
   a {
