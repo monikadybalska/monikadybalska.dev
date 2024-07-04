@@ -1,5 +1,7 @@
 ---
 import Card from "./Card.astro";
+import patronitedb from "../images/patronitedb.jpg"
+import visitjerichothumbnail from "../images/visitjerichothumbnail.jpg"
 ---
 
 <section id="projects" class="homepage-section">
@@ -7,7 +9,7 @@ import Card from "./Card.astro";
     <h2 class="section-title">Projects</h2>
     <div class="cards">
       <Card
-        image="patronitedb.jpg"
+        image={{src: patronitedb, alt: "Screenshot of the PatroniteDB homepage"}}
         tags={["Tanstack Query", "Docker", "Amazon ECS"]}
         label="Coming soon"
       >
@@ -18,7 +20,7 @@ import Card from "./Card.astro";
       </Card>
       <Card
         href="projects/visitjericho"
-        image="visitjerichothumbnail.jpg"
+        image={{src: visitjerichothumbnail, alt: "Screenshot of the Visit Jericho homepage"}}
         tags={["Next.js", "Tailwind CSS", "GraphQL"]}
         label="Latest"
       >

@@ -1,3 +1,11 @@
+---
+import { Image } from "astro:assets"
+import react from "../images/react.svg"
+import next from "../images/next.svg"
+import typescript from "../images/typescript.svg"
+import tailwind from "../images/tailwind.svg"
+---
+
 <section id="about" class="homepage-section">
   <div class="section-content">
     <div class="section-text">
@@ -34,20 +42,10 @@
     </div>
     <div class="tech-icons">
       <div class="tech-icons-circle">
-        <img src="react.svg" class="icon" alt="React icon" title="React" />
-        <img src="next.svg" class="icon" alt="Next.js icon" title="Next.js" />
-        <img
-          src="typescript.svg"
-          class="icon"
-          alt="Typescript icon"
-          title="Typescript"
-        />
-        <img
-          src="tailwind.svg"
-          class="icon"
-          alt="Tailwind CSS icon"
-          title="Tailwind CSS"
-        />
+        <Image src={react} class="icon" alt="React icon" title="React" widths={[50, 100]} sizes="(max-width: 700px) 50px, 100px" width="100" format="webp" loading="lazy"/>
+        <Image src={next} class="icon" alt="Next.js icon" title="Next.js" widths={[50, 100]} sizes="(max-width: 700px) 50px, 100px" width="100" format="webp" loading="lazy"/>
+        <Image src={typescript} class="icon" alt="Typescript icon" title="Typescript" widths={[50, 100]} sizes="(max-width: 700px) 50px, 100px" width="100" format="webp" loading="lazy"/>
+        <Image src={tailwind} class="icon" alt="Tailwind CSS icon" title="Tailwind CSS" widths={[50, 100]} sizes="(max-width: 700px) 50px, 100px" width="100" format="webp" loading="lazy"/>
       </div>
     </div>
   </div>
@@ -61,6 +59,7 @@
   .icon {
     width: 6rem;
     max-width: 100px;
+    max-height: 100px;
     filter: drop-shadow(10px 10px 4px rgb(89, 89, 89));
     animation: maintain 20s linear infinite;
   }
@@ -130,6 +129,7 @@
   @media screen and (max-width: 700px) {
     .icon {
       max-width: 50px;
+      max-height: 50px;
     }
     .tech-icons-circle {
       max-width: 150px;

@@ -2,6 +2,8 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Card from "../../components/Card.astro";
 import Anchor from "../../components/Anchor.astro";
+import { Image } from "astro:assets";
+import visitjerichothumbnail from "../../images/visitjerichothumbnail.jpg";
 ---
 
 <BaseLayout title="Visit Jericho | Monika Dybalska">
@@ -53,10 +55,15 @@ import Anchor from "../../components/Anchor.astro";
           </div>
         </div>
       </div>
-      <img
-        src="/visitjerichothumbnail.jpg"
+      <Image
+        src={visitjerichothumbnail}
         class="main-image"
         alt="A screenshot of the Visit Jericho website homepage"
+        widths={[644, 966]}
+        sizes="(max-width: 700px) 644px, 966px"
+        width="644"
+        format="webp"
+        loading="lazy"
       />
     </section>
     <section>
@@ -320,6 +327,7 @@ import Anchor from "../../components/Anchor.astro";
   .main-image {
     border: solid black 1px;
     max-width: 100%;
+    max-height: 621.75px;
     box-sizing: border-box;
   }
 

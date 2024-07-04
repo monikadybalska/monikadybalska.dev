@@ -1,5 +1,7 @@
 ---
 import Anchor from "./Anchor.astro";
+import { Image } from "astro:assets";
+import monika from "../images/monika.png"
 ---
 
 <section id="intro" class="homepage-section">
@@ -20,11 +22,7 @@ import Anchor from "./Anchor.astro";
         variant="primary"
       />
     </div>
-    <img
-      src="/monika.png"
-      alt="Headshot of Monika Dybalska"
-      class="hero-image"
-    />
+    <Image src={monika} alt="Headshot of Monika Dybalska" widths={[200, 500]} sizes="(max-width: 700px) 200px, 500px" width="300" format="webp" loading="lazy" class="hero-image"/>
   </div>
 </section>
 
@@ -45,6 +43,7 @@ import Anchor from "./Anchor.astro";
   .hero-image {
     border-radius: 50%;
     width: 300px;
+    height: 300px;
     border: solid black 1px;
   }
 
@@ -62,6 +61,7 @@ import Anchor from "./Anchor.astro";
   @media screen and (max-width: 700px) {
     .hero-image {
       width: 200px;
+      height: 200px;
     }
 
     .subtitle {
