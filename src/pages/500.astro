@@ -1,0 +1,26 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+interface Props {
+  error: unknown;
+}
+
+const { error } = Astro.props;
+---
+
+<BaseLayout title="Error">
+  <main>
+    <h1>{error instanceof Error ? error.message : "Unknown error"}</h1>
+  </main>
+</BaseLayout>
+
+<style>
+  main {
+    padding: 5rem 15rem 5rem 15rem;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    min-height: fit-content;
+    align-items: center;
+  }
+</style>

@@ -1,7 +1,13 @@
 ---
+import { Image } from 'astro:assets';
+
 interface Props {
   href?: string;
-  image?: string;
+  image?: {
+    src: any,
+    alt: string;
+  };
+  alt?: string;
   tags?: string[];
   label?: string;
   variant?: string;
@@ -17,7 +23,7 @@ const { href, image, tags, label, variant = "filled" } = Astro.props;
       <slot name="title" />
       {label && <p class="label">{label}</p>}
     </div>
-    {image && <img src={image} class="card-image" />}
+    {image && <Image src={image.src} class="card-image" alt={image.alt} inferSize/>}
     {
       tags && (
         <div class="tags">
@@ -69,6 +75,7 @@ const { href, image, tags, label, variant = "filled" } = Astro.props;
 
   .card-image {
     width: 100%;
+    height: auto;
   }
 
   .card-buttons {
