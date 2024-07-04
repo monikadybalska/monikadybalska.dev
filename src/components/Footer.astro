@@ -1,6 +1,9 @@
 ---
 import Logo from "./Logo.astro";
 import Anchor from "./Anchor.astro";
+import { Image } from "astro:assets";
+import astro from "../images/astro.svg"
+import netlify from "../images/netlify.svg"
 ---
 
 <footer>
@@ -10,8 +13,8 @@ import Anchor from "./Anchor.astro";
       <h2>Designed and built by Monika Dybalska with:</h2>
     </div>
     <div>
-      <img src="/astro.svg" alt="Astro logo" title="Astro" class="logo" />
-      <img src="/netlify.svg" alt="Netlify logo" title="Netlify" class="logo" />
+      <Image src={astro} alt="Astro logo" title="Astro" class="logo" inferSize/>
+      <Image src={netlify} alt="Netlify logo" title="Netlify" class="logo" inferSize/>
     </div>
     <a href="https://github.com/monikadybalska/monikadybalska.dev" class="link"
       >View source code</a
@@ -107,6 +110,7 @@ import Anchor from "./Anchor.astro";
 
   .logo {
     height: 3rem;
+    width: auto;
   }
 
   .socials {
