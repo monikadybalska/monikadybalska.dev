@@ -1,52 +1,89 @@
 ---
-import { Image } from "astro:assets"
-import react from "../images/react.svg"
-import next from "../images/next.svg"
-import typescript from "../images/typescript.svg"
-import tailwind from "../images/tailwind.svg"
+import { Image } from "astro:assets";
+import react from "../images/react.svg";
+import next from "../images/next.svg";
+import typescript from "../images/typescript.svg";
+import tailwind from "../images/tailwind.svg";
 ---
 
 <section id="about" class="homepage-section">
-  <div class="section-content">
-    <div class="section-text">
-      <h2 class="section-title">About me</h2>
-      <p>
-        As a self-taught frontend developer, I leverage my background in
-        philosophy to bring a unique perspective to web development. My academic
-        training honed my analytical and problem-solving skills, allowing me to
-        write clean, performant code that tackles complex challenges. Outside of
-        coding, I cultivate my creativity through writing, crocheting, and a
-        fascination with design and architecture. This blend fosters an approach
-        that prioritizes not just functionality, but also user experience and
-        visual appeal. I specialise in:
-      </p>
-      <ul class="specialties">
-        <li>
-          Responsive, mobile-first web design, be it with vanilla CSS or
-          Tailwind CSS
-        </li>
-        <li>
-          Typescript, from essentials such as generic types to advanced matters
-          such as generic constraints
-        </li>
-        <li>
-          Next.js and performant React that leverages all React ^18.0 has to
-          offer
-        </li>
-      </ul>
-      <p>
-        I'm a dedicated learner, continuously expanding my skillset and seeking
-        opportunities to collaborate on impactful web projects. Let's build
-        something great together!
-      </p>
-    </div>
-    <div class="tech-icons">
-      <div class="tech-icons-circle">
-        <Image src={react} class="icon" alt="React icon" title="React" widths={[50, 100]} sizes="(max-width: 700px) 50px, 100px" width="100" format="webp" loading="lazy"/>
-        <Image src={next} class="icon" alt="Next.js icon" title="Next.js" widths={[50, 100]} sizes="(max-width: 700px) 50px, 100px" width="100" format="webp" loading="lazy"/>
-        <Image src={typescript} class="icon" alt="Typescript icon" title="Typescript" widths={[50, 100]} sizes="(max-width: 700px) 50px, 100px" width="100" format="webp" loading="lazy"/>
-        <Image src={tailwind} class="icon" alt="Tailwind CSS icon" title="Tailwind CSS" widths={[50, 100]} sizes="(max-width: 700px) 50px, 100px" width="100" format="webp" loading="lazy"/>
-      </div>
+  <div class="section-text">
+    <h2 class="section-title">About me</h2>
+    <p>
+      As a self-taught frontend developer, I leverage my background in
+      philosophy to bring a unique perspective to web development. My academic
+      training honed my analytical and problem-solving skills, allowing me to
+      write clean, performant code that tackles complex challenges. Outside of
+      coding, I cultivate my creativity through writing, crocheting, and a
+      fascination with design and architecture. This blend fosters an approach
+      that prioritizes not just functionality, but also user experience and
+      visual appeal. I specialise in:
+    </p>
+    <ul class="specialties">
+      <li>
+        Responsive, mobile-first web design, be it with vanilla CSS or Tailwind
+        CSS
+      </li>
+      <li>
+        Typescript, from essentials such as generic types to advanced matters
+        such as generic constraints
+      </li>
+      <li>
+        Next.js and performant React that leverages all React ^18.0 has to offer
+      </li>
+    </ul>
+    <p>
+      I'm a dedicated learner, continuously expanding my skillset and seeking
+      opportunities to collaborate on impactful web projects. Let's build
+      something great together!
+    </p>
+  </div>
+  <div class="tech-icons">
+    <div class="tech-icons-circle">
+      <Image
+        src={react}
+        class="icon"
+        alt="React icon"
+        title="React"
+        widths={[50, 100]}
+        sizes="(max-width: 700px) 50px, 100px"
+        width="100"
+        format="webp"
+        loading="lazy"
+      />
+      <Image
+        src={next}
+        class="icon"
+        alt="Next.js icon"
+        title="Next.js"
+        widths={[50, 100]}
+        sizes="(max-width: 700px) 50px, 100px"
+        width="100"
+        format="webp"
+        loading="lazy"
+      />
+      <Image
+        src={typescript}
+        class="icon"
+        alt="Typescript icon"
+        title="Typescript"
+        widths={[50, 100]}
+        sizes="(max-width: 700px) 50px, 100px"
+        width="100"
+        format="webp"
+        loading="lazy"
+      />
+      <Image
+        src={tailwind}
+        class="icon"
+        alt="Tailwind CSS icon"
+        title="Tailwind CSS"
+        widths={[50, 100]}
+        sizes="(max-width: 700px) 50px, 100px"
+        width="100"
+        format="webp"
+        loading="lazy"
+      />
     </div>
   </div>
 </section>
@@ -126,11 +163,22 @@ import tailwind from "../images/tailwind.svg"
     }
   }
 
+  @media screen and (max-width: 1300px) {
+    .tech-icons {
+      margin-top: 100px;
+    }
+  }
+
   @media screen and (max-width: 700px) {
     .icon {
       max-width: 50px;
       max-height: 50px;
     }
+
+    .tech-icons {
+      margin-top: 100px;
+    }
+
     .tech-icons-circle {
       max-width: 150px;
       max-height: 150px;

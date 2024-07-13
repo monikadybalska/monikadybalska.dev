@@ -2,31 +2,29 @@
 import Button from "./Button.astro";
 ---
 
-<section id="contact" class="homepage-section">
-  <div class="section-content cols">
-    <div class="section-text form-text">
-      <h2>Get in touch</h2>
-      <p>Got a question or a project idea? Let's talk!</p>
+<section id="contact" class="homepage-section cols">
+  <div class="section-text form-text">
+    <h2>Get in touch</h2>
+    <p>Got a question or a project idea? Let's talk!</p>
+  </div>
+  <div class="section-text success hidden">
+    <h2>Thank you!</h2>
+    <p>Your form has been submitted. I'll be in touch soon!</p>
+  </div>
+  <form name="contact" method="POST" data-netlify="true">
+    <label for="name">Your name</label>
+    <input type="text" id="name" name="name" class="form-field" required />
+    <label for="email">Your email</label>
+    <input type="email" id="email" name="email" class="form-field" required />
+    <label for="message">Your message</label>
+    <textarea id="message" name="message" class="form-field" rows="8"
+    ></textarea>
+    <div class="button-row">
+      <Button text="Contact me" variant="primary" type="submit" />
     </div>
-    <div class="section-text success hidden">
-      <h2>Thank you!</h2>
-      <p>Your form has been submitted. I'll be in touch soon!</p>
-    </div>
-    <form name="contact" method="POST" data-netlify="true">
-      <label for="name">Your name</label>
-      <input type="text" id="name" name="name" class="form-field" required />
-      <label for="email">Your email</label>
-      <input type="email" id="email" name="email" class="form-field" required />
-      <label for="message">Your message</label>
-      <textarea id="message" name="message" class="form-field" rows="8"
-      ></textarea>
-      <div class="button-row">
-        <Button text="Contact me" variant="primary" type="submit" />
-      </div>
-    </form>
-    <div class="section-text error hidden">
-      <p>There was an error submitting the form. Please try again.</p>
-    </div>
+  </form>
+  <div class="section-text error hidden">
+    <p>There was an error submitting the form. Please try again.</p>
   </div>
 </section>
 

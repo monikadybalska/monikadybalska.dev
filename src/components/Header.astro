@@ -3,8 +3,10 @@ import Logo from "./Logo.astro";
 ---
 
 <header>
-  <button class="skip"> Skip to navigation</button>
-  <Logo />
+  <div class="header-content">
+    <Logo />
+    <button class="skip"> Skip to navigation</button>
+  </div>
 </header>
 
 <style>
@@ -12,11 +14,18 @@ import Logo from "./Logo.astro";
     display: flex;
     flex-direction: row-reverse;
     scroll-snap-align: start;
-    padding: 1rem 15rem 0 15rem;
     height: fit-content;
+    justify-content: center;
+    padding-top: 5rem;
     align-items: start;
-    max-width: 100%;
+    width: 100%;
     box-sizing: border-box;
+  }
+
+  .header-content {
+    width: 100%;
+    max-width: 1280px;
+    display: flex;
     justify-content: space-between;
   }
 
