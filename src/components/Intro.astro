@@ -4,9 +4,8 @@ import { Image } from "astro:assets";
 import monikadybalska from "../images/monikadybalska.jpg";
 ---
 
-<section id="intro" class="homepage-section">
-  <!-- <div class="section-content"> -->
-  <div class="section-text">
+<section id="intro">
+  <div class="col">
     <p>Hi there, my name is</p>
     <h1>Monika Dybalska</h1>
     <p class="subtitle">
@@ -22,18 +21,20 @@ import monikadybalska from "../images/monikadybalska.jpg";
       variant="primary"
     />
   </div>
-  <div class="hero-image-container">
-    <div class="diamond">
-      <Image
-        src={monikadybalska}
-        alt="Headshot of Monika Dybalska"
-        widths={[200, 500]}
-        sizes="(max-width: 700px) 200px, 500px"
-        width="300"
-        format="webp"
-        loading="lazy"
-        class="hero-image"
-      />
+  <div class="col">
+    <div class="hero-image-container">
+      <div class="diamond">
+        <Image
+          src={monikadybalska}
+          alt="Headshot of Monika Dybalska"
+          widths={[200, 500]}
+          sizes="(max-width: 700px) 200px, 500px"
+          width="300"
+          format="webp"
+          loading="lazy"
+          class="hero-image"
+        />
+      </div>
     </div>
   </div>
 </section>
@@ -49,12 +50,12 @@ import monikadybalska from "../images/monikadybalska.jpg";
   }
 
   .glow {
-    text-shadow: #61dafb 1px 0 10px;
+    text-shadow: rgb(71, 209, 175) 1px 0 10px;
   }
 
   .hero-image-container {
-    width: 300px;
-    height: 300px;
+    width: 340px;
+    height: 340px;
     display: flex;
     overflow: clip;
     align-items: center;
@@ -67,7 +68,8 @@ import monikadybalska from "../images/monikadybalska.jpg";
     height: 200px;
     overflow: clip;
     rotate: 45deg;
-    border: solid black 1px;
+    border: solid #173f35 10px;
+    box-shadow: 0 0 0 10px #4e2361;
   }
 
   .hero-image {
@@ -91,11 +93,16 @@ import monikadybalska from "../images/monikadybalska.jpg";
     .hero-image-container {
       width: 250px;
       height: 250px;
+      margin-top: 50px;
     }
 
     .diamond {
       width: 150px;
       height: 150px;
+    }
+
+    .hero-image {
+      top: -80px;
     }
 
     .subtitle {

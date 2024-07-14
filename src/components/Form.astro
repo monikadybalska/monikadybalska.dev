@@ -2,12 +2,12 @@
 import Button from "./Button.astro";
 ---
 
-<section id="contact" class="homepage-section cols">
-  <div class="section-text form-text">
+<section id="contact" class="cols">
+  <div class="form-text col">
     <h2>Get in touch</h2>
     <p>Got a question or a project idea? Let's talk!</p>
   </div>
-  <div class="section-text success hidden">
+  <div class="success hidden">
     <h2>Thank you!</h2>
     <p>Your form has been submitted. I'll be in touch soon!</p>
   </div>
@@ -23,7 +23,7 @@ import Button from "./Button.astro";
       <Button text="Contact me" variant="primary" type="submit" />
     </div>
   </form>
-  <div class="section-text error hidden">
+  <div class="error hidden">
     <p>There was an error submitting the form. Please try again.</p>
   </div>
 </section>
@@ -42,12 +42,13 @@ import Button from "./Button.astro";
     flex-direction: column;
     width: 100%;
     max-width: 660px;
+    margin-top: 1rem;
   }
 
   .form-field {
     margin-bottom: 1rem;
     background-color: transparent;
-    border: black solid 1px;
+    border: #19150a solid 1px;
     font-family: "Drogowskaz";
     font-size: 1rem;
     max-width: 660px;
@@ -60,7 +61,7 @@ import Button from "./Button.astro";
 
   input:focus,
   textarea:focus {
-    box-shadow: 0 0 0.5rem 0.1rem rgb(97, 218, 251, 1);
+    box-shadow: 0 0 0.5rem 0.1rem rgb(71, 209, 175);
     outline: none;
   }
 

@@ -53,13 +53,16 @@ import Anchor from "./Anchor.astro";
 
 <style>
   footer {
-    background-color: black;
-    color: rgb(231, 231, 231);
+    color: #f8f5ed;
+    width: 100%;
+    height: fit-content;
+    box-sizing: border-box;
     display: flex;
     padding: 10rem 15rem 10rem 15rem;
-    scroll-snap-align: start;
     justify-content: space-between;
     align-items: center;
+    contain: content;
+    background-color: #19150a;
   }
 
   .col {
@@ -70,12 +73,12 @@ import Anchor from "./Anchor.astro";
   }
 
   .links {
-    color: #61dafb;
+    color: rgb(71, 209, 175);
     min-width: 70px;
   }
 
   .link {
-    color: #61dafb;
+    color: rgb(71, 209, 175);
     text-transform: uppercase;
   }
 
@@ -96,7 +99,7 @@ import Anchor from "./Anchor.astro";
   }
 
   a {
-    color: #61dafb;
+    color: rgb(71, 209, 175);
   }
 
   a:hover,
@@ -125,7 +128,7 @@ import Anchor from "./Anchor.astro";
   @media screen and (max-width: 700px) {
     footer {
       scroll-snap-align: unset;
-      padding: 5rem 1rem 5rem 1rem;
+      padding: 5rem 2rem 5rem 2rem;
       align-items: center;
       justify-content: space-between;
       min-height: fit-content;
@@ -139,6 +142,12 @@ import Anchor from "./Anchor.astro";
 
     .links {
       flex-direction: row;
+    }
+  }
+
+  @media screen and (max-width: 400px) {
+    .links {
+      flex-direction: column;
     }
   }
 </style>
