@@ -1,9 +1,6 @@
 ---
 import Logo from "./Logo.astro";
 import Anchor from "./Anchor.astro";
-import { Image } from "astro:assets";
-import astro from "../images/astro.svg"
-import netlify from "../images/netlify.svg"
 ---
 
 <footer>
@@ -13,10 +10,12 @@ import netlify from "../images/netlify.svg"
       <h2>Designed and built by Monika Dybalska with:</h2>
     </div>
     <div>
-      <Image src={astro} alt="Astro logo" title="Astro" class="logo" inferSize/>
-      <Image src={netlify} alt="Netlify logo" title="Netlify" class="logo" inferSize/>
+      <img src="/astro.svg" alt="Astro logo" title="Astro" class="logo" />
+      <img src="/netlify.svg" alt="Netlify logo" title="Netlify" class="logo" />
     </div>
-    <a href="https://github.com/monikadybalska/monikadybalska.dev" class="link">View source code</a>
+    <a href="https://github.com/monikadybalska/monikadybalska.dev" class="link"
+      >View source code</a
+    >
     <p>
       This project uses the <a
         href="https://kroje.org/en/fonts/zaklad/"
@@ -54,14 +53,16 @@ import netlify from "../images/netlify.svg"
 
 <style>
   footer {
-    background-color: black;
-    color: rgb(231, 231, 231);
+    color: #f8f5ed;
+    width: 100%;
+    height: fit-content;
+    box-sizing: border-box;
     display: flex;
-    padding: 0 15rem 0 15rem;
-    scroll-snap-align: start;
+    padding: 10rem 15rem 10rem 15rem;
     justify-content: space-between;
     align-items: center;
-    min-height: 100vh;
+    contain: content;
+    background-color: #19150a;
   }
 
   .col {
@@ -72,12 +73,12 @@ import netlify from "../images/netlify.svg"
   }
 
   .links {
-    color: #61dafb;
+    color: rgb(71, 209, 175);
     min-width: 70px;
   }
 
   .link {
-    color: #61dafb;
+    color: rgb(71, 209, 175);
     text-transform: uppercase;
   }
 
@@ -98,7 +99,7 @@ import netlify from "../images/netlify.svg"
   }
 
   a {
-    color: #61dafb;
+    color: rgb(71, 209, 175);
   }
 
   a:hover,
@@ -118,7 +119,7 @@ import netlify from "../images/netlify.svg"
 
   @media screen and (max-width: 1300px) {
     footer {
-      padding: 0 3rem 0 3rem;
+      padding: 10rem 5rem 10rem 5rem;
       align-items: center;
       justify-content: space-between;
     }
@@ -127,7 +128,7 @@ import netlify from "../images/netlify.svg"
   @media screen and (max-width: 700px) {
     footer {
       scroll-snap-align: unset;
-      padding: 3rem 1rem 3rem 1rem;
+      padding: 5rem 2rem 5rem 2rem;
       align-items: center;
       justify-content: space-between;
       min-height: fit-content;
@@ -141,6 +142,12 @@ import netlify from "../images/netlify.svg"
 
     .links {
       flex-direction: row;
+    }
+  }
+
+  @media screen and (max-width: 400px) {
+    .links {
+      flex-direction: column;
     }
   }
 </style>

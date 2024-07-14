@@ -1,59 +1,61 @@
 ---
 import Card from "./Card.astro";
-import patronitedb from "../images/patronitedb.jpg"
-import visitjerichothumbnail from "../images/visitjerichothumbnail.jpg"
+import patronitedb from "../images/patronitedb.jpg";
+import visitjerichothumbnail from "../images/visitjerichothumbnail.jpg";
 ---
 
-<section id="projects" class="homepage-section">
-  <div class="section-content cols">
-    <h2 class="section-title">Projects</h2>
-    <div class="cards">
-      <Card
-        image={{src: patronitedb, alt: "Screenshot of the PatroniteDB homepage"}}
-        tags={["Tanstack Query", "Docker", "Amazon ECS"]}
-        label="Coming soon"
-      >
-        <h3 slot="title">PatroniteDB</h3>
-        <p slot="description" class="description">
-          A sortable, filtered database of Patronite authors and subscriptions
-        </p>
-      </Card>
-      <Card
-        href="projects/visitjericho"
-        image={{src: visitjerichothumbnail, alt: "Screenshot of the Visit Jericho homepage"}}
-        tags={["Next.js", "Tailwind CSS", "GraphQL"]}
-        label="Latest"
-      >
-        <h3 slot="title">Visit Jericho</h3>
-        <p slot="description" class="description">
-          A travel guide website for a non-profit project with Tech To The
-          Rescue
-        </p>
-      </Card>
-    </div>
+<section id="projects" class="cols">
+  <h2 class="section-title">Projects</h2>
+  <div class="cards">
+    <Card
+      image={{
+        src: patronitedb,
+        alt: "Screenshot of the PatroniteDB homepage",
+      }}
+      tags={["Tanstack Query", "Docker", "Amazon ECS"]}
+      label="Coming soon"
+    >
+      <h3 slot="title">PatroniteDB</h3>
+      <p slot="description" class="description">
+        A sortable, filtered database of Patronite authors and subscriptions
+      </p>
+    </Card>
+    <Card
+      href="projects/visitjericho"
+      image={{
+        src: visitjerichothumbnail,
+        alt: "Screenshot of the Visit Jericho homepage",
+      }}
+      tags={["Next.js", "Tailwind CSS", "GraphQL"]}
+      label="Latest"
+    >
+      <h3 slot="title">Visit Jericho</h3>
+      <p slot="description" class="description">
+        A travel guide website for a non-profit project with Tech To The Rescue
+      </p>
+    </Card>
   </div>
-
-  <style>
-    .cards {
-      margin-top: 30px;
-      display: flex;
-      width: 100%;
-      gap: 30px;
-    }
-
-    .section-title {
-      width: 100%;
-      text-align: start;
-    }
-
-    .description {
-      flex-grow: 2;
-    }
-
-    @media screen and (max-width: 700px) {
-      .cards {
-        flex-direction: column;
-      }
-    }
-  </style>
 </section>
+
+<style>
+  .cards {
+    display: flex;
+    width: 100%;
+    gap: 30px;
+  }
+
+  .section-title {
+    width: 100%;
+    text-align: start;
+  }
+
+  .description {
+    flex-grow: 2;
+  }
+
+  @media screen and (max-width: 700px) {
+    .cards {
+      flex-direction: column;
+    }
+  }
+</style>

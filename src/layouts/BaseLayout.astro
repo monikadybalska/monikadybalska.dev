@@ -20,8 +20,25 @@ const { title } = Astro.props;
     <title>{title}</title>
   </head>
   <body>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      class="background"
+      width="100%"
+      height="100%"
+    >
+      <filter id="noiseFilter">
+        <feTurbulence
+          type="fractalNoise"
+          baseFrequency="10"
+          numOctaves="6"
+          stitchTiles="stitch"></feTurbulence>
+      </filter>
+      <rect width="100%" height="100%" filter="url(#noiseFilter)"></rect>
+    </svg>
     <Header />
-    <slot />
+    <main>
+      <slot />
+    </main>
     <Footer />
   </body>
 </html>
@@ -44,32 +61,47 @@ const { title } = Astro.props;
   }
 
   html {
-    background-color: #e5e5e5;
     font-family: "Drogowskaz";
-    background-image: url("/nnnoise.svg");
+    color: #19150a;
+  }
+
+  .background {
+    filter: contrast(100%) brightness(100%);
+    position: fixed;
+    background: linear-gradient(0deg, rgb(78, 35, 97), rgb(248, 245, 236)),
+      url(/noise.svg);
+    z-index: 50;
+    opacity: 70%;
+    isolation: isolate;
+    mix-blend-mode: soft-light;
+    pointer-events: none;
   }
 
   body {
     margin: 0;
   }
 
+  * {
+    box-sizing: border-box;
+  }
+
   h1 {
     font-family: "Zaklad";
-    text-decoration: underline solid #61dafb;
+    text-decoration: underline solid rgb(71, 209, 175);
     margin: 0;
     font-size: 4rem;
   }
 
   h2 {
     font-family: "Zaklad";
-    text-decoration: underline solid #61dafb;
+    text-decoration: underline solid rgb(71, 209, 175);
     margin: 0;
     font-size: 3rem;
   }
 
   h3 {
     font-size: 1.17rem;
-    text-decoration: underline solid #61dafb;
+    text-decoration: underline solid rgb(71, 209, 175);
     margin: 0;
   }
 
@@ -82,41 +114,35 @@ const { title } = Astro.props;
     color: black;
   }
 
-  .homepage-section {
-    scroll-snap-align: start;
-    min-height: 100vh;
+  main {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
     width: 100%;
+    align-items: center;
+    margin-bottom: 10rem;
   }
 
-  .homepage-section:nth-of-type(1) {
-    scroll-snap-align: unset;
-    min-height: 80vh;
+  section {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
     width: 100%;
+    max-width: 1280px;
+    margin-top: 5rem;
+    margin-bottom: 5rem;
   }
 
-  .homepage-section .section-content {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 15rem 0 15rem;
-    width: 100%;
-    box-sizing: border-box;
-  }
-
-  .homepage-section .section-text {
+  .section-text {
     margin-right: 50px;
+    width: 100%;
     max-width: 660px;
     display: flex;
     flex-direction: column;
     justify-content: start;
+  }
+
+  .section-title {
+    margin-bottom: 1rem;
   }
 
   .cols {
@@ -125,14 +151,18 @@ const { title } = Astro.props;
 
   .label {
     padding: 0.2rem 0.5rem 0.2rem 0.5rem;
-    background-color: rgb(97, 218, 251, 1);
+    background-color: rgb(71, 209, 175);
     width: fit-content;
-    color: black;
-    border: black 1px solid;
+    color: #19150a;
+    border: #19150a 1px solid;
     text-transform: uppercase;
     font-size: 0.8rem;
     border-radius: 1rem;
     text-align: center;
+  }
+
+  .project-header {
+    width: 100%;
   }
 
   @keyframes ripple {
@@ -143,37 +173,22 @@ const { title } = Astro.props;
   }
 
   @media screen and (max-width: 1300px) {
-    .homepage-section .section-content {
-      padding: 3rem 10rem 3rem 3rem;
+    section {
       flex-direction: column;
       align-items: center;
+      padding: 0 5rem 0 5rem;
     }
 
-    .homepage-section .section-text {
-      margin-bottom: 100px;
-      margin-right: 0;
-      max-height: none;
+    .section-text {
       max-width: none;
-      width: 100%;
     }
   }
 
   @media screen and (max-width: 700px) {
-    .homepage-section {
-      margin-bottom: 20px;
-      scroll-snap-align: unset;
-      min-height: auto;
-    }
-
-    .homepage-section .section-content {
-      padding: 50px 1rem 0 1rem;
+    section {
       flex-direction: column;
-    }
-
-    .homepage-section .section-text {
-      margin-bottom: 50px;
-      width: 100%;
-      max-width: none;
+      padding: 0 2rem 0 2rem;
+      margin-bottom: 2rem;
     }
 
     h1 {

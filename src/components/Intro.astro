@@ -1,28 +1,41 @@
 ---
 import Anchor from "./Anchor.astro";
 import { Image } from "astro:assets";
-import monika from "../images/monika.png"
+import monikadybalska from "../images/monikadybalska.jpg";
 ---
 
-<section id="intro" class="homepage-section">
-  <div class="section-content">
-    <div class="section-text">
-      <p>Hi there, my name is</p>
-      <h1>Monika Dybalska</h1>
-      <p class="subtitle">
-        I'm a frontend developer with a passion for building <span class="glow"
-          >unique</span
-        >, <span class="glow">user-centric</span>, and <span class="glow"
-          >performant</span
-        > websites and applications.
-      </p>
-      <Anchor
-        href="/cv-monika-dybalska.pdf"
-        text="Download Resume"
-        variant="primary"
-      />
+<section id="intro">
+  <div class="col">
+    <p>Hi there, my name is</p>
+    <h1>Monika Dybalska</h1>
+    <p class="subtitle">
+      I'm a frontend developer with a passion for building <span class="glow"
+        >unique</span
+      >, <span class="glow">user-centric</span>, and <span class="glow"
+        >performant</span
+      > websites and applications.
+    </p>
+    <Anchor
+      href="/cv-monika-dybalska.pdf"
+      text="Download Resume"
+      variant="primary"
+    />
+  </div>
+  <div class="col">
+    <div class="hero-image-container">
+      <div class="diamond">
+        <Image
+          src={monikadybalska}
+          alt="Headshot of Monika Dybalska"
+          widths={[200, 500]}
+          sizes="(max-width: 700px) 200px, 500px"
+          width="300"
+          format="webp"
+          loading="lazy"
+          class="hero-image"
+        />
+      </div>
     </div>
-    <Image src={monika} alt="Headshot of Monika Dybalska" widths={[200, 500]} sizes="(max-width: 700px) 200px, 500px" width="300" format="webp" loading="lazy" class="hero-image"/>
   </div>
 </section>
 
@@ -37,14 +50,32 @@ import monika from "../images/monika.png"
   }
 
   .glow {
-    text-shadow: #61dafb 1px 0 10px;
+    text-shadow: rgb(71, 209, 175) 1px 0 10px;
+  }
+
+  .hero-image-container {
+    width: 340px;
+    height: 340px;
+    display: flex;
+    overflow: clip;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+
+  .diamond {
+    width: 200px;
+    height: 200px;
+    overflow: clip;
+    rotate: 45deg;
+    border: solid #173f35 10px;
+    box-shadow: 0 0 0 10px #4e2361;
   }
 
   .hero-image {
-    border-radius: 50%;
-    width: 300px;
-    height: 300px;
-    border: solid black 1px;
+    rotate: -45deg;
+    position: fixed;
+    top: -70px;
   }
 
   .hero-links {
@@ -59,9 +90,19 @@ import monika from "../images/monika.png"
   }
 
   @media screen and (max-width: 700px) {
+    .hero-image-container {
+      width: 250px;
+      height: 250px;
+      margin-top: 50px;
+    }
+
+    .diamond {
+      width: 150px;
+      height: 150px;
+    }
+
     .hero-image {
-      width: 200px;
-      height: 200px;
+      top: -80px;
     }
 
     .subtitle {

@@ -1,10 +1,10 @@
 ---
-import { Image } from 'astro:assets';
+import { Image } from "astro:assets";
 
 interface Props {
   href?: string;
   image?: {
-    src: any,
+    src: any;
     alt: string;
   };
   alt?: string;
@@ -23,7 +23,11 @@ const { href, image, tags, label, variant = "filled" } = Astro.props;
       <slot name="title" />
       {label && <p class="label">{label}</p>}
     </div>
-    {image && <Image src={image.src} class="card-image" alt={image.alt} inferSize/>}
+    {
+      image && (
+        <Image src={image.src} class="card-image" alt={image.alt} inferSize />
+      )
+    }
     {
       tags && (
         <div class="tags">
@@ -40,11 +44,11 @@ const { href, image, tags, label, variant = "filled" } = Astro.props;
 <style>
   .card-container {
     position: relative;
+    contain: content;
   }
 
   .card {
-    background-color: black;
-    color: white;
+    color: #f8f5ed;
     box-sizing: border-box;
     padding: 0.8rem;
     width: 100%;
@@ -52,13 +56,14 @@ const { href, image, tags, label, variant = "filled" } = Astro.props;
     display: flex;
     gap: 0.5rem;
     flex-direction: column;
-    border: solid #61dafb 1px;
+    border: solid rgb(71, 209, 175) 1px;
+    background-color: #19150a;
   }
 
   .card.outlined {
     background-color: transparent;
-    color: black;
-    border-color: black;
+    color: #19150a;
+    border-color: #19150a;
   }
 
   .card-link {
@@ -89,9 +94,9 @@ const { href, image, tags, label, variant = "filled" } = Astro.props;
 
   .label {
     padding: 0.2rem 0.5rem 0.2rem 0.5rem;
-    background-color: rgb(97, 218, 251, 1);
+    background-color: rgb(71, 209, 175);
     width: fit-content;
-    color: black;
+    color: #19150a;
     text-transform: uppercase;
     font-size: 0.8rem;
     border-radius: 1rem;
@@ -108,14 +113,14 @@ const { href, image, tags, label, variant = "filled" } = Astro.props;
 
   .tag {
     background-color: transparent;
-    color: white;
+    color: #f8f5ed;
     padding: 0.2rem 0.5rem 0.2rem 0.5rem;
     border-radius: 1rem;
-    border: #61dafb solid 1px;
+    border: rgb(71, 209, 175) solid 1px;
     height: fit-content;
   }
 
   .card-container.with-link:hover {
-    box-shadow: 0 0 0.5rem 0.1rem rgb(97, 218, 251, 1);
+    box-shadow: 0 0 0.5rem 0.1rem rgb(71, 209, 175);
   }
 </style>
