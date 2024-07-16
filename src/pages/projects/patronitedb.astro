@@ -3,38 +3,37 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import Card from "../../components/Card.astro";
 import Anchor from "../../components/Anchor.astro";
 import { Image } from "astro:assets";
-import visitjericho from "../../images/visitjericho.jpg";
+import patronitedb from "../../images/patronitedb.jpg";
 ---
 
-<BaseLayout title="Visit Jericho | Monika Dybalska">
+<BaseLayout title="PatroniteDB | Monika Dybalska">
   <section>
     <div class="project-header">
-      <h1>Visit Jericho</h1>
+      <h1>PatroniteDB</h1>
       <p class="label">Beta</p>
     </div>
     <div class="cols">
       <div class="col">
         <p>
-          Visit Jericho is a travel guide website for the city of Jericho,
-          developed on the request of the non-governmental organisation Mosaic
-          Centre Jericho. I designed and built this website from scratch using
-          Next.js, TailwindCSS, GraphQL, and WordPress.
+          PatroniteDB is an online database that provides in-depth insights into
+          Patronite creators and trends. I developed it as a hobby project using
+          Nest.js and SQL for the backend and React for the frontend.
         </p>
         <div class="summary-sections">
           <Card variant="outlined">
             <h2 slot="title" class="card-title">Stack</h2>
             <ul slot="description">
-              <li class="nextjs">Next.js</li>
-              <li class="tailwindcss">Tailwind CSS</li>
-              <li class="graphql">GraphQL</li>
+              <li class="tanstack">Tanstack Query</li>
+              <li class="docker">Docker</li>
+              <li class="nestjs">Nest.js</li>
             </ul>
           </Card>
           <Card variant="outlined">
             <h2 slot="title" class="card-title">Categories</h2>
             <ul slot="description">
-              <li>Non-profit</li>
+              <li>Personal</li>
+              <li>APIs</li>
               <li>Web development</li>
-              <li>Web design</li>
             </ul>
           </Card>
         </div>
@@ -42,23 +41,23 @@ import visitjericho from "../../images/visitjericho.jpg";
           <div class="link-container end">
             <Anchor
               text="View live site"
-              href="https://beta.visitjericho.com"
+              href="https://patronitedb.netlify.app"
               variant="primary"
             />
           </div>
           <div class="link-container">
             <Anchor
               text="View source code"
-              href="https://github.com/monikadybalska/visitjericho"
+              href="https://github.com/monikadybalska/patronitedb-frontend"
               variant="secondary"
             />
           </div>
         </div>
       </div>
       <Image
-        src={visitjericho}
+        src={patronitedb}
         class="main-image"
-        alt="A screenshot of the Visit Jericho website homepage"
+        alt="A screenshot of the PatroniteDB homepage"
         widths={[644, 966]}
         sizes="(max-width: 700px) 644px, 966px"
         width="644"
@@ -71,24 +70,20 @@ import visitjericho from "../../images/visitjericho.jpg";
   <section>
     <h2>Background and goals</h2>
     <p>
-      When I came across Mosaic Centre Jericho's project brief on the Tech To
-      The Rescue website, I got excited about the possibility of helping a
-      passionate travel guide promote his city. Since Mosaic Centre Jericho
-      created the content, I had full control over the design and development
-      process and I wanted to make sure that the site balanced a modern feel for
-      the users with the familiarity and ease of use for the website
-      administrators. In short, I had three main goals in mind:
+      Since <a href="https://patronite.pl/">Patronite</a> is one of the most popular
+      platforms for subscription services in Poland, I wanted to provide an overview
+      of all its goings-on such as the most popular creators, highest-earning creators,
+      new creators joining. Inspired by <a href="https://steamdb.info/"
+        >SteamDB</a
+      >, I went on to create an online database of all things Patronite that
+      would enable the users to:
     </p>
     <ul>
+      <li>Get insights into new, trending, and the most popular creators at a glance</li>
       <li>
-        Speed, performance, and SEO optimisation to provide the best user
-        experience
+        Access and filter creator charts by number of subscribers, revenue, categories, and other criteria
       </li>
-      <li>Headless CMS for the best performance and flexibility</li>
-      <li>
-        WordPress integration to allow the organisation to easily update the
-        website in their familiar WordPress environment
-      </li>
+      <li>Review a specific creators' stats and compare them over time with tables and charts</li>
     </ul>
   </section>
   <section>
@@ -380,16 +375,16 @@ import visitjericho from "../../images/visitjericho.jpg";
     max-height: 30px;
   }
 
-  .nextjs::marker {
-    color: black;
+  .tanstack::marker {
+    color: #ef4444;
   }
 
-  .tailwindcss::marker {
-    color: #38bdf8;
+  .docker::marker {
+    color: #1d63ed;
   }
 
-  .graphql::marker {
-    color: #f6009b;
+  .nestjs::marker {
+    color: #ed1543;
   }
 
   @media screen and (max-width: 1300px) {
