@@ -5,7 +5,7 @@ import monikadybalska from "../images/monikadybalska.jpg";
 ---
 
 <section id="intro">
-  <div class="col">
+  <div class="about-text col">
     <p>Hi there, my name is</p>
     <h1>Monika Dybalska</h1>
     <p class="subtitle">
@@ -21,7 +21,7 @@ import monikadybalska from "../images/monikadybalska.jpg";
       variant="primary"
     />
   </div>
-  <div class="col">
+  <div class="col hero-image-col">
     <div class="hero-image-container">
       <div class="diamond">
         <Image
@@ -40,6 +40,11 @@ import monikadybalska from "../images/monikadybalska.jpg";
 </section>
 
 <style>
+  #intro {
+    margin-top: 10rem;
+    margin-bottom: 10rem;
+  }
+
   p {
     font-size: 1.5rem;
   }
@@ -51,6 +56,12 @@ import monikadybalska from "../images/monikadybalska.jpg";
 
   .glow {
     text-shadow: rgb(71, 209, 175) 1px 0 10px;
+  }
+
+  .hero-image-col {
+    display: flex;
+    width: 40%;
+    justify-content: center;
   }
 
   .hero-image-container {
@@ -89,6 +100,12 @@ import monikadybalska from "../images/monikadybalska.jpg";
     align-self: center;
   }
 
+  @media screen and (max-width: 1300px) {
+    .hero-image-col {
+      width: 100%;
+    }
+  }
+
   @media screen and (max-width: 700px) {
     .hero-image-container {
       width: 250px;
@@ -102,7 +119,9 @@ import monikadybalska from "../images/monikadybalska.jpg";
     }
 
     .hero-image {
-      top: -80px;
+      top: -50px;
+      width: 200px;
+      height: auto;
     }
 
     .subtitle {
@@ -110,3 +129,7 @@ import monikadybalska from "../images/monikadybalska.jpg";
     }
   }
 </style>
+
+<script>
+  const diamond = document.querySelector(".diamond");
+</script>

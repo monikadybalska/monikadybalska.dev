@@ -1,73 +1,30 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import Card from "../../components/Card.astro";
-import Anchor from "../../components/Anchor.astro";
-import { Image } from "astro:assets";
 import visitjericho from "../../images/visitjericho.jpg";
+import ProjectOverview from "../../components/ProjectOverview.astro";
 ---
 
 <BaseLayout title="Visit Jericho | Monika Dybalska">
-  <section>
-    <div class="project-header">
-      <h1>Visit Jericho</h1>
-      <p class="label">Beta</p>
-    </div>
-    <div class="cols">
-      <div class="col">
-        <p>
-          Visit Jericho is a travel guide website for the city of Jericho,
+  <ProjectOverview
+    title="Visit Jericho"
+    label="Beta"
+    description={`Visit Jericho is a travel guide website for the city of Jericho,
           developed on the request of the non-governmental organisation Mosaic
           Centre Jericho. I designed and built this website from scratch using
-          Next.js, TailwindCSS, GraphQL, and WordPress.
-        </p>
-        <div class="summary-sections">
-          <Card variant="outlined">
-            <h2 slot="title" class="card-title">Stack</h2>
-            <ul slot="description">
-              <li class="nextjs">Next.js</li>
-              <li class="tailwindcss">Tailwind CSS</li>
-              <li class="graphql">GraphQL</li>
-            </ul>
-          </Card>
-          <Card variant="outlined">
-            <h2 slot="title" class="card-title">Categories</h2>
-            <ul slot="description">
-              <li>Non-profit</li>
-              <li>Web development</li>
-              <li>Web design</li>
-            </ul>
-          </Card>
-        </div>
-        <div class="summary-sections">
-          <div class="link-container end">
-            <Anchor
-              text="View live site"
-              href="https://beta.visitjericho.com"
-              variant="primary"
-            />
-          </div>
-          <div class="link-container">
-            <Anchor
-              text="View source code"
-              href="https://github.com/monikadybalska/visitjericho"
-              variant="secondary"
-            />
-          </div>
-        </div>
-      </div>
-      <Image
-        src={visitjericho}
-        class="main-image"
-        alt="A screenshot of the Visit Jericho website homepage"
-        widths={[644, 966]}
-        sizes="(max-width: 700px) 644px, 966px"
-        width="644"
-        height="621.75"
-        format="webp"
-        loading="lazy"
-      />
-    </div>
-  </section>
+          Next.js, TailwindCSS, GraphQL, and WordPress.`}
+    stack={[
+      ["nextjs", "Next.js"],
+      ["tailwindcss", "Tailwind CSS"],
+      ["graphql", "GraphQL"],
+    ]}
+    categories={["Non-profit", "Web development", "Web design"]}
+    siteURL="https://beta.visitjericho.com"
+    repoURL="https://github.com/monikadybalska/visitjericho"
+    image={{
+      src: visitjericho,
+      alt: "A screenshot of the Visit Jericho website homepage",
+    }}
+  />
   <section>
     <h2>Background and goals</h2>
     <p>
@@ -278,23 +235,6 @@ import visitjericho from "../../images/visitjericho.jpg";
     gap: 1.5rem;
   }
 
-  .label {
-    font-size: 1rem;
-  }
-
-  .summary-sections {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
-  }
-
-  .card-title {
-    font-family: "Drogowskaz";
-    font-size: 1.17rem;
-    text-align: center;
-    width: 100%;
-  }
-
   ul {
     padding: 0;
     margin: 0;
@@ -306,49 +246,6 @@ import visitjericho from "../../images/visitjericho.jpg";
   li {
     list-style-type: square;
     list-style-position: inside;
-  }
-
-  .challenges-images {
-    container-type: size;
-  }
-
-  .challenges-image {
-    position: absolute;
-  }
-
-  .main-image {
-    max-width: 100%;
-    max-height: auto;
-    height: auto;
-    box-sizing: border-box;
-    border: solid #173f35 10px;
-    box-shadow: 0 0 0 10px #4e2361;
-  }
-
-  #organisation {
-    width: 150px;
-    z-index: 50;
-    border-radius: 0.5rem;
-  }
-
-  #components {
-    top: 20%;
-    left: 20%;
-    width: 400px;
-  }
-
-  .link-container {
-    display: flex;
-  }
-
-  .link-container.end {
-    justify-content: end;
-  }
-
-  .icon {
-    width: 6rem;
-    max-width: 100px;
-    filter: drop-shadow(10px 10px 4px rgb(89, 89, 89));
   }
 
   .tech-stack-category {
@@ -380,29 +277,7 @@ import visitjericho from "../../images/visitjericho.jpg";
     max-height: 30px;
   }
 
-  .nextjs::marker {
-    color: black;
-  }
-
-  .tailwindcss::marker {
-    color: #38bdf8;
-  }
-
-  .graphql::marker {
-    color: #f6009b;
-  }
-
-  @media screen and (max-width: 1300px) {
-    main {
-      padding: 3rem 3rem 3rem 3rem;
-    }
-  }
-
   @media screen and (max-width: 700px) {
-    main {
-      padding: 3rem 1rem 3rem 1rem;
-    }
-
     .cols {
       display: flex;
       flex-direction: column-reverse;

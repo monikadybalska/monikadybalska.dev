@@ -1,72 +1,30 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import Card from "../../components/Card.astro";
-import Anchor from "../../components/Anchor.astro";
-import { Image } from "astro:assets";
+import ProjectOverview from "../../components/ProjectOverview.astro";
 import patronitedb from "../../images/patronitedb.jpg";
+import { Image } from "astro:assets";
+import patronitedbrankings from "../../images/patronitedb-rankings.jpg";
 ---
 
 <BaseLayout title="PatroniteDB | Monika Dybalska">
-  <section>
-    <div class="project-header">
-      <h1>PatroniteDB</h1>
-      <p class="label">Beta</p>
-    </div>
-    <div class="cols">
-      <div class="col">
-        <p>
-          PatroniteDB is an online database that provides in-depth insights into
+  <ProjectOverview
+    title="PatroniteDB"
+    description={`PatroniteDB is an online database that provides in-depth insights into
           Patronite creators and trends. I developed it as a hobby project using
-          Nest.js and SQL for the backend and React for the frontend.
-        </p>
-        <div class="summary-sections">
-          <Card variant="outlined">
-            <h2 slot="title" class="card-title">Stack</h2>
-            <ul slot="description">
-              <li class="tanstack">Tanstack Query</li>
-              <li class="docker">Docker</li>
-              <li class="nestjs">Nest.js</li>
-            </ul>
-          </Card>
-          <Card variant="outlined">
-            <h2 slot="title" class="card-title">Categories</h2>
-            <ul slot="description">
-              <li>Personal</li>
-              <li>APIs</li>
-              <li>Web development</li>
-            </ul>
-          </Card>
-        </div>
-        <div class="summary-sections">
-          <div class="link-container end">
-            <Anchor
-              text="View live site"
-              href="https://patronitedb.netlify.app"
-              variant="primary"
-            />
-          </div>
-          <div class="link-container">
-            <Anchor
-              text="View source code"
-              href="https://github.com/monikadybalska/patronitedb-frontend"
-              variant="secondary"
-            />
-          </div>
-        </div>
-      </div>
-      <Image
-        src={patronitedb}
-        class="main-image"
-        alt="A screenshot of the PatroniteDB homepage"
-        widths={[644, 966]}
-        sizes="(max-width: 700px) 644px, 966px"
-        width="644"
-        height="621.75"
-        format="webp"
-        loading="lazy"
-      />
-    </div>
-  </section>
+          Nest.js and SQL for the backend and React for the frontend.`}
+    stack={[
+      ["tanstack", "Tanstack Query"],
+      ["docker", "Docker"],
+      ["nestjs", "Nest.js"],
+    ]}
+    categories={["Personal", "APIs", "Web development"]}
+    siteURL="https://patronitedb.netlify.app"
+    repoURL="https://github.com/monikadybalska/patronitedb-frontend"
+    image={{
+      src: patronitedb,
+      alt: "A screenshot of the PatroniteDB homepage",
+    }}
+  />
   <section>
     <h2>Background and goals</h2>
     <p>
@@ -79,11 +37,18 @@ import patronitedb from "../../images/patronitedb.jpg";
       would enable the users to:
     </p>
     <ul>
-      <li>Get insights into new, trending, and the most popular creators at a glance</li>
       <li>
-        Access and filter creator charts by number of subscribers, revenue, categories, and other criteria
+        Get insights into new, trending, and the most popular creators at a
+        glance
       </li>
-      <li>Review a specific creators' stats and compare them over time with tables and charts</li>
+      <li>
+        Access and filter creator charts by number of subscribers, revenue,
+        categories, and other criteria
+      </li>
+      <li>
+        Review a specific creators' stats and compare them over time with tables
+        and charts
+      </li>
     </ul>
   </section>
   <section>
@@ -92,30 +57,46 @@ import patronitedb from "../../images/patronitedb.jpg";
       <div>
         <div class="tech-stack-category">
           <h3>Frontend</h3>
-          <img
-            src="/nextjs-white.svg"
-            alt="Next.js logo"
-            title="Next.js"
-            class="logo"
-          />
+          <div class="logos">
+            <img
+              src="/react.svg"
+              alt="React logo"
+              title="React"
+              class="logo small"
+            />
+            <img
+              src="/tanstack.png"
+              alt="Tanstack logo"
+              title="Tanstack"
+              class="logo small"
+            />
+          </div>
         </div>
         <div class="tech-stack-category">
           <h3>Styling</h3>
           <img
-            src="/tailwindcss-white.svg"
-            alt="Tailwind CSS logo"
-            title="Tailwind CSS"
-            class="logo"
+            src="/mui.svg"
+            alt="Material UI logo"
+            title="Material UI"
+            class="logo small"
           />
         </div>
         <div class="tech-stack-category">
-          <h3>Data</h3>
-          <img
-            src="/graphql-white.svg"
-            alt="GraphQL logo"
-            title="GraphQL"
-            class="logo small"
-          />
+          <h3>Backend</h3>
+          <div class="logos">
+            <img
+              src="/influxdata.svg"
+              alt="InfluxData logo"
+              title="InfluxData"
+              class="logo"
+            />
+            <img
+              src="/nestjs.svg"
+              alt="Nest.js logo"
+              title="Nest.js"
+              class="logo small"
+            />
+          </div>
         </div>
         <div class="tech-stack-category">
           <h3>Testing</h3>
@@ -124,12 +105,6 @@ import patronitedb from "../../images/patronitedb.jpg";
               src="/jest.svg"
               alt="Jest logo"
               title="Jest"
-              class="logo small"
-            />
-            <img
-              src="/playwright.svg"
-              alt="Playwright logo"
-              title="Playwright"
               class="logo small"
             />
           </div>
@@ -145,77 +120,39 @@ import patronitedb from "../../images/patronitedb.jpg";
         </div>
         <div class="tech-stack-category">
           <h3>Deployment</h3>
-          <img
-            src="/netlify.svg"
-            alt="Netlify logo"
-            title="Netlify"
-            class="logo small"
-          />
-        </div>
-        <div class="tech-stack-category">
-          <h3>Media optimisation</h3>
           <div class="logos">
             <img
-              src="/aws-white.svg"
-              alt="AWS Cloud logo"
-              title="AWS Cloud"
-              class="logo-icon"
+              src="/docker-white.svg"
+              alt="Docker logo"
+              title="Docker"
+              class="logo"
             />
             <img
-              src="/cloudfront.svg"
-              alt="Amazon Cloudfront logo"
-              title="Amazon Cloudfront"
-              class="logo-icon"
-            />
-            <img
-              src="/s3.svg"
-              alt="Amazon S3 logo"
-              title="Amazon S3"
-              class="logo-icon"
-            />
-          </div>
-        </div>
-        <div class="tech-stack-category">
-          <h3>Hosting</h3>
-          <div class="logos">
-            <img
-              src="/aws-white.svg"
-              alt="AWS Cloud logo"
-              title="AWS Cloud"
-              class="logo-icon"
-            />
-            <img
-              src="/lightsail.svg"
-              alt="Amazon Lightsail logo"
-              title="Amazon Lightsail"
-              class="logo-icon"
+              src="/netlify.svg"
+              alt="Netlify logo"
+              title="Netlify"
+              class="logo small"
             />
           </div>
         </div>
       </div>
       <div class="col">
         <p>
-          To meet the project goals, I had to settle on a modern and reliable
-          tech stack. WordPress as the CMS was a given, so I began a search for
-          a compatible frontend/fullstack framework. With the Next.js App
-          Router, I was able easily fetch the CMS data with GraphQL, while
-          optimising performance.
+          To achieve consistency, reusability, and a user-friendly design, I
+          chose React and Material UI. Since the project involved multiple
+          complex queries and countless dynamic routes, I opted for two Tanstack
+          solutions that integrated seamlessly with each other — Tanstack Query
+          and Tanstack Router.
         </p>
         <p>
-          As for the design, Tailwind CSS made styling both quick and consistent
-          and worked seamlessly with component libraries such as Material
-          Tailwind or Radix UI.
+          To retrieve data from the Patronite website, I built a Node.js crawler
+          — NestJS made the process quick, easy, and enjoyable. From then on, I
+          stored my data in InfluxDB and queried it using SQL.
         </p>
         <p>
-          To test my code, I used Jest for unit testing (aside from the
-          not-yet-supported server components) and Playwright for E2E testing. I
-          also chose GitHub and GitHub actions for CI/CD, which allowed me to
-          introduce feature branches and run tests on commits.
-        </p>
-        <p>
-          Netlify's integration with Next.js made deployment a breeze, and
-          Amazon Lightsail allowed us to link our WordPress instance in minutes.
-          To further optimise media, we also used Amazon Cloudfront and S3.
+          At its initial stage, the website is deployed wtih Netlify, but I also
+          containerised it with Docker to ensure consistency and scalability as
+          the project grows.
         </p>
       </div>
     </div>
@@ -224,31 +161,42 @@ import patronitedb from "../../images/patronitedb.jpg";
     <h2>Challenges</h2>
     <div class="cols">
       <div class="col">
-        <h3>Code organisation</h3>
+        <h3>Performance vs. flexibility</h3>
         <p>
-          As for code organisation, I prioritised clarity and reusability. I
-          used the Material Tailwind component library to ensure consistency.
-          Since I needed to make some tweaks to meet the specific needs of the
-          design, I created component directories with varying scopes next to my
-          Next.js route directories.
+          The aim of the website was to provide a wide range of functionalities
+          and maximum flexibility to the users. This, however, involved many
+          continuous user-triggered data queries and could end up affecting
+          loading speed. To optimise performance, I made use of Tanstack Query's
+          extensive fetching and rendering functionalities, such as prefetching,
+          suspense queries, or infinite queries.
         </p>
       </div>
       <div class="col">
-        <h3>Integrating different technologies</h3>
-        <p>
-          Some of the services we initially considered due to competetive
-          pricing had not yet introduced full integration with RSC and the App
-          Router. To take advantage of Netlify's uniquely amazing integration
-          without sacrificing cost-efficiency, I lowered the cost on the
-          deployment side by pre-optimising images with Amazon Cloudfront and
-          S3.
-        </p>
+        <Image
+          src={patronitedbrankings}
+          class="section-image"
+          alt="A screenshot of the PatroniteDB rankings page"
+          widths={[644, 2000]}
+          sizes="(max-width: 700px) 644px, 2000px"
+          width="644"
+          height="621.75"
+          format="webp"
+          loading="lazy"
+        />
       </div>
     </div>
   </section>
 </BaseLayout>
 
 <style>
+  .section-image {
+    max-width: 100%;
+    max-height: auto;
+    height: auto;
+    box-sizing: border-box;
+    border: 1px solid rgb(71, 209, 175);
+  }
+
   section {
     display: flex;
     flex-direction: column;
@@ -273,23 +221,6 @@ import patronitedb from "../../images/patronitedb.jpg";
     gap: 1.5rem;
   }
 
-  .label {
-    font-size: 1rem;
-  }
-
-  .summary-sections {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
-  }
-
-  .card-title {
-    font-family: "Drogowskaz";
-    font-size: 1.17rem;
-    text-align: center;
-    width: 100%;
-  }
-
   ul {
     padding: 0;
     margin: 0;
@@ -301,49 +232,6 @@ import patronitedb from "../../images/patronitedb.jpg";
   li {
     list-style-type: square;
     list-style-position: inside;
-  }
-
-  .challenges-images {
-    container-type: size;
-  }
-
-  .challenges-image {
-    position: absolute;
-  }
-
-  .main-image {
-    max-width: 100%;
-    max-height: auto;
-    height: auto;
-    box-sizing: border-box;
-    border: solid #173f35 10px;
-    box-shadow: 0 0 0 10px #4e2361;
-  }
-
-  #organisation {
-    width: 150px;
-    z-index: 50;
-    border-radius: 0.5rem;
-  }
-
-  #components {
-    top: 20%;
-    left: 20%;
-    width: 400px;
-  }
-
-  .link-container {
-    display: flex;
-  }
-
-  .link-container.end {
-    justify-content: end;
-  }
-
-  .icon {
-    width: 6rem;
-    max-width: 100px;
-    filter: drop-shadow(10px 10px 4px rgb(89, 89, 89));
   }
 
   .tech-stack-category {
@@ -359,6 +247,8 @@ import patronitedb from "../../images/patronitedb.jpg";
   .logos {
     display: flex;
     justify-content: end;
+    align-items: center;
+    gap: 0.5rem;
   }
 
   .logo {
@@ -375,29 +265,7 @@ import patronitedb from "../../images/patronitedb.jpg";
     max-height: 30px;
   }
 
-  .tanstack::marker {
-    color: #ef4444;
-  }
-
-  .docker::marker {
-    color: #1d63ed;
-  }
-
-  .nestjs::marker {
-    color: #ed1543;
-  }
-
-  @media screen and (max-width: 1300px) {
-    main {
-      padding: 3rem 3rem 3rem 3rem;
-    }
-  }
-
   @media screen and (max-width: 700px) {
-    main {
-      padding: 3rem 1rem 3rem 1rem;
-    }
-
     .cols {
       display: flex;
       flex-direction: column-reverse;
