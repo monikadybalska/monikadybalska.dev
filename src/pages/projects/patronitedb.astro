@@ -1,0 +1,274 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import ProjectOverview from "../../components/ProjectOverview.astro";
+import patronitedb from "../../images/patronitedb.jpg";
+import { Image } from "astro:assets";
+import patronitedbrankings from "../../images/patronitedb-rankings.jpg";
+---
+
+<BaseLayout title="PatroniteDB | Monika Dybalska">
+  <ProjectOverview
+    title="PatroniteDB"
+    description={`PatroniteDB is an online database that provides in-depth insights into
+          Patronite creators and trends. I developed it as a hobby project using
+          Nest.js and SQL for the backend and React for the frontend.`}
+    stack={[
+      ["tanstack", "Tanstack Query"],
+      ["docker", "Docker"],
+      ["nestjs", "Nest.js"],
+    ]}
+    categories={["Personal", "APIs", "Web development"]}
+    siteURL="https://patronitedb.netlify.app"
+    repoURL="https://github.com/monikadybalska/patronitedb-frontend"
+    image={{
+      src: patronitedb,
+      alt: "A screenshot of the PatroniteDB homepage",
+    }}
+  />
+  <section>
+    <h2>Background and goals</h2>
+    <p>
+      Since <a href="https://patronite.pl/">Patronite</a> is one of the most popular
+      platforms for subscription services in Poland, I wanted to provide an overview
+      of all its goings-on such as the most popular creators, highest-earning creators,
+      new creators joining. Inspired by <a href="https://steamdb.info/"
+        >SteamDB</a
+      >, I went on to create an online database of all things Patronite that
+      would enable the users to:
+    </p>
+    <ul>
+      <li>
+        Get insights into new, trending, and the most popular creators at a
+        glance
+      </li>
+      <li>
+        Access and filter creator charts by number of subscribers, revenue,
+        categories, and other criteria
+      </li>
+      <li>
+        Review a specific creators' stats and compare them over time with tables
+        and charts
+      </li>
+    </ul>
+  </section>
+  <section>
+    <h2>Tech stack</h2>
+    <div class="cols">
+      <div>
+        <div class="tech-stack-category">
+          <h3>Frontend</h3>
+          <div class="logos">
+            <img
+              src="/react.svg"
+              alt="React logo"
+              title="React"
+              class="logo small"
+            />
+            <img
+              src="/tanstack.png"
+              alt="Tanstack logo"
+              title="Tanstack"
+              class="logo small"
+            />
+          </div>
+        </div>
+        <div class="tech-stack-category">
+          <h3>Styling</h3>
+          <img
+            src="/mui.svg"
+            alt="Material UI logo"
+            title="Material UI"
+            class="logo small"
+          />
+        </div>
+        <div class="tech-stack-category">
+          <h3>Backend</h3>
+          <div class="logos">
+            <img
+              src="/influxdata.svg"
+              alt="InfluxData logo"
+              title="InfluxData"
+              class="logo"
+            />
+            <img
+              src="/nestjs.svg"
+              alt="Nest.js logo"
+              title="Nest.js"
+              class="logo small"
+            />
+          </div>
+        </div>
+        <div class="tech-stack-category">
+          <h3>Testing</h3>
+          <div>
+            <img
+              src="/jest.svg"
+              alt="Jest logo"
+              title="Jest"
+              class="logo small"
+            />
+          </div>
+        </div>
+        <div class="tech-stack-category">
+          <h3>CI/CD</h3>
+          <img
+            src="/github-white.png"
+            alt="GitHub logo"
+            title="GitHub"
+            class="logo small"
+          />
+        </div>
+        <div class="tech-stack-category">
+          <h3>Deployment</h3>
+          <div class="logos">
+            <img
+              src="/docker-white.svg"
+              alt="Docker logo"
+              title="Docker"
+              class="logo"
+            />
+            <img
+              src="/netlify.svg"
+              alt="Netlify logo"
+              title="Netlify"
+              class="logo small"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <p>
+          To achieve consistency, reusability, and a user-friendly design, I
+          chose React and Material UI. Since the project involved multiple
+          complex queries and countless dynamic routes, I opted for two Tanstack
+          solutions that integrated seamlessly with each other — Tanstack Query
+          and Tanstack Router.
+        </p>
+        <p>
+          To retrieve data from the Patronite website, I built a Node.js crawler
+          — NestJS made the process quick, easy, and enjoyable. From then on, I
+          stored my data in InfluxDB and queried it using SQL.
+        </p>
+        <p>
+          At its initial stage, the website is deployed wtih Netlify, but I also
+          containerised it with Docker to ensure consistency and scalability as
+          the project grows.
+        </p>
+      </div>
+    </div>
+  </section>
+  <section>
+    <h2>Challenges</h2>
+    <div class="cols">
+      <div class="col">
+        <h3>Performance vs. flexibility</h3>
+        <p>
+          The aim of the website was to provide a wide range of functionalities
+          and maximum flexibility to the users. This, however, involved many
+          continuous user-triggered data queries and could end up affecting
+          loading speed. To optimise performance, I made use of Tanstack Query's
+          extensive fetching and rendering functionalities, such as prefetching,
+          suspense queries, or infinite queries.
+        </p>
+      </div>
+      <div class="col">
+        <Image
+          src={patronitedbrankings}
+          class="section-image"
+          alt="A screenshot of the PatroniteDB rankings page"
+          widths={[644, 2000]}
+          sizes="(max-width: 700px) 644px, 2000px"
+          width="644"
+          height="621.75"
+          format="webp"
+          loading="lazy"
+        />
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .section-image {
+    max-width: 100%;
+    max-height: auto;
+    height: auto;
+    box-sizing: border-box;
+    border: 1px solid rgb(71, 209, 175);
+  }
+
+  section {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  h2 {
+    width: 100%;
+    text-align: center;
+    font-size: 2rem;
+  }
+
+  .cols {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem;
+  }
+
+  .col {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  ul {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  li {
+    list-style-type: square;
+    list-style-position: inside;
+  }
+
+  .tech-stack-category {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #19150a;
+    color: #f8f5ed;
+    padding: 0.5rem;
+    border: 1px solid rgb(71, 209, 175);
+  }
+
+  .logos {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .logo {
+    max-height: 15px;
+    height: 2rem;
+  }
+
+  .logo-icon {
+    border-radius: 50%;
+    width: 35px;
+  }
+
+  .logo.small {
+    max-height: 30px;
+  }
+
+  @media screen and (max-width: 700px) {
+    .cols {
+      display: flex;
+      flex-direction: column-reverse;
+    }
+  }
+</style>

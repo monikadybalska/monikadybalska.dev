@@ -1,0 +1,155 @@
+---
+import Card from "./Card.astro";
+import Anchor from "./Anchor.astro";
+import { Image } from "astro:assets";
+
+interface Props {
+  title: string;
+  label?: string;
+  description: string;
+  stack: string[][];
+  categories: string[];
+  siteURL: string;
+  repoURL: string;
+  image: {
+    src: ImageMetadata;
+    alt: string;
+  };
+}
+
+const {
+  title,
+  label,
+  description,
+  stack,
+  categories,
+  siteURL,
+  repoURL,
+  image,
+} = Astro.props;
+---
+
+<section>
+  <div class="project-header">
+    <h1>{title}</h1>
+    {label && <p class="label">{label}</p>}
+  </div>
+  <div class="cols">
+    <div class="col">
+      <p>
+        {description}
+      </p>
+      <div class="summary-sections">
+        <Card variant="outlined">
+          <h2 slot="title" class="card-title">Stack</h2>
+          <ul slot="description">
+            {stack.map((tool) => <li class={tool[0]}>{tool[1]}</li>)}
+          </ul>
+        </Card>
+        <Card variant="outlined">
+          <h2 slot="title" class="card-title">Categories</h2>
+          <ul slot="description">
+            {categories.map((category) => <li>{category}</li>)}
+          </ul>
+        </Card>
+      </div>
+      <div class="summary-sections">
+        <div class="link-container end">
+          <Anchor text="View live site" href={siteURL} variant="primary" />
+        </div>
+        <div class="link-container">
+          <Anchor text="View source code" href={repoURL} variant="secondary" />
+        </div>
+      </div>
+    </div>
+    <Image
+      src={image.src}
+      class="main-image"
+      alt={image.alt}
+      widths={[644, 2000]}
+      sizes="(max-width: 700px) 644px, 2000px"
+      format="webp"
+      loading="lazy"
+    />
+  </div>
+</section>
+
+<style>
+  section {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  h2 {
+    width: 100%;
+    text-align: center;
+    font-size: 2rem;
+  }
+
+  .cols {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem;
+  }
+
+  .col {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .label {
+    font-size: 1rem;
+  }
+
+  .summary-sections {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .card-title {
+    font-family: "Drogowskaz";
+    font-size: 1.17rem;
+    text-align: center;
+    width: 100%;
+  }
+
+  ul {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  li {
+    list-style-type: square;
+    list-style-position: inside;
+  }
+
+  .main-image {
+    max-width: 100%;
+    max-height: auto;
+    height: auto;
+    box-sizing: border-box;
+    border: solid #173f35 10px;
+    box-shadow: 0 0 0 10px #4e2361;
+  }
+
+  .link-container {
+    display: flex;
+  }
+
+  .link-container.end {
+    justify-content: end;
+  }
+
+  @media screen and (max-width: 700px) {
+    .cols {
+      display: flex;
+      flex-direction: column-reverse;
+    }
+  }
+</style>

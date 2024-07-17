@@ -1,15 +1,16 @@
 ---
 import Card from "./Card.astro";
-import patronitedb from "../images/patronitedb.jpg";
-import visitjerichothumbnail from "../images/visitjerichothumbnail.jpg";
+import patronitedbthumbnail from "../images/patronitedb-thumbnail.jpg";
+import visitjerichothumbnail from "../images/visitjericho-thumbnail.jpg";
 ---
 
 <section id="projects" class="cols">
   <h2 class="section-title">Projects</h2>
   <div class="cards">
     <Card
+      href="projects/patronitedb"
       image={{
-        src: patronitedb,
+        src: patronitedbthumbnail,
         alt: "Screenshot of the PatroniteDB homepage",
       }}
       tags={["Tanstack Query", "Docker", "Amazon ECS"]}
