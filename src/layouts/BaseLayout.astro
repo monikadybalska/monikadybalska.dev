@@ -13,7 +13,7 @@ const { title } = Astro.props;
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content="Astro description" />
+    <meta name="description" content="Monika Dybalska's development portfolio" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/md.svg" />
     <meta name="generator" content={Astro.generator} />
@@ -195,4 +195,11 @@ const { title } = Astro.props;
       font-size: 3rem;
     }
   }
+
+  @media only screen and (max-device-width: 480px) {
+    html {
+      height: calc(100% + 60px);
+      min-height: calc(100% + 60px);
+    }
+}
 </style>
