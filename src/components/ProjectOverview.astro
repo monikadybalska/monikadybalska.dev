@@ -29,7 +29,7 @@ const {
 } = Astro.props;
 ---
 
-<section>
+<section class="project-overview">
   <div class="project-header">
     <h1>{title}</h1>
     {label && <p class="label">{label}</p>}
@@ -81,6 +81,10 @@ const {
     gap: 1.5rem;
   }
 
+  .project-header {
+    opacity: 0;
+  }
+
   h2 {
     width: 100%;
     text-align: center;
@@ -97,6 +101,7 @@ const {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
+    opacity: 0;
   }
 
   .label {
@@ -136,6 +141,7 @@ const {
     box-sizing: border-box;
     border: solid #173f35 10px;
     box-shadow: 0 0 0 10px #4e2361;
+    opacity: 0;
   }
 
   .link-container {
@@ -147,9 +153,38 @@ const {
   }
 
   @media screen and (max-width: 700px) {
+    .project-header,
+    .col,
+    .main-image {
+      opacity: 1;
+    }
+
     .cols {
       display: flex;
       flex-direction: column-reverse;
     }
   }
 </style>
+
+<script>
+  const section = document.querySelector(".project-overview");
+  const projectHeader = document.querySelector(".project-header");
+
+  if (section && window.innerWidth > 700) {
+    const cols = section.children[1].children;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          projectHeader?.classList.add("fade-in");
+          cols[0].classList.add("slide-right", "delay-600");
+          cols[1].classList.add("slide-down");
+        }
+      },
+      {
+        threshold: 0.6,
+      }
+    );
+    observer.observe(section);
+  }
+</script>

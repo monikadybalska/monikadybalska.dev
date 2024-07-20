@@ -16,7 +16,7 @@ interface Props {
 const { href, image, tags, label, variant = "filled" } = Astro.props;
 ---
 
-<div class:list={["card-container", { "with-link": href }]}>
+<div class:list={["card-container", { "with-link": href }, variant]}>
   {href && <a href={href} class="card-link" />}
   <div class:list={["card", variant || "filled"]}>
     <div class="card-header">
@@ -45,6 +45,10 @@ const { href, image, tags, label, variant = "filled" } = Astro.props;
   .card-container {
     position: relative;
     contain: content;
+  }
+
+  .card-container.filled {
+    opacity: 0;
   }
 
   .card {
@@ -122,5 +126,11 @@ const { href, image, tags, label, variant = "filled" } = Astro.props;
 
   .card-container.with-link:hover {
     box-shadow: 0 0 0.5rem 0.1rem rgb(71, 209, 175);
+  }
+
+  @media screen and (max-width: 700px) {
+    .card-container {
+      opacity: 1;
+    }
   }
 </style>

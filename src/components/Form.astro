@@ -43,6 +43,11 @@ import Button from "./Button.astro";
     width: 100%;
     max-width: 660px;
     margin-top: 1rem;
+    opacity: 0;
+  }
+
+  .form-text {
+    opacity: 0;
   }
 
   .form-field {
@@ -71,6 +76,13 @@ import Button from "./Button.astro";
 
   .hidden {
     display: none;
+  }
+
+  @media screen and (max-width: 700px) {
+    .form-text,
+    form {
+      opacity: 1;
+    }
   }
 </style>
 
@@ -104,4 +116,23 @@ import Button from "./Button.astro";
   };
 
   document.querySelector("form")?.addEventListener("submit", handleSubmit);
+
+  const section = document.querySelector("#contact");
+  const formText = section?.querySelector(".form-text");
+  const form = section?.querySelector("form");
+
+  if (section && formText && form && window.innerWidth > 700) {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          formText.classList.add("slide-down");
+          form.classList.add("slide-up");
+        }
+      },
+      {
+        threshold: 0.6,
+      }
+    );
+    observer.observe(section);
+  }
 </script>

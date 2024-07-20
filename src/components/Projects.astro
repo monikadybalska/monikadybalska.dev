@@ -48,6 +48,7 @@ import visitjerichothumbnail from "../images/visitjericho-thumbnail.jpg";
   .section-title {
     width: 100%;
     text-align: start;
+    opacity: 0;
   }
 
   .description {
@@ -55,8 +56,35 @@ import visitjerichothumbnail from "../images/visitjericho-thumbnail.jpg";
   }
 
   @media screen and (max-width: 700px) {
+    .section-title {
+      opacity: 1;
+    }
+
     .cards {
       flex-direction: column;
     }
   }
 </style>
+
+<script>
+  const section = document.querySelector("#projects");
+  const sectionTitle = section?.querySelector(".section-title");
+  const cards = section?.querySelector(".cards")?.children;
+
+  if (section && sectionTitle && cards && window.innerWidth > 700) {
+    const timeouts: { [id: number]: number } = {};
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          sectionTitle.classList.add("fade-in");
+          cards[0].classList.add("slide-right", "delay-600");
+          cards[1].classList.add("slide-to-right", "delay-600");
+        }
+      },
+      {
+        threshold: 0.6,
+      }
+    );
+    observer.observe(section);
+  }
+</script>

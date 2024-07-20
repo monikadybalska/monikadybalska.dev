@@ -201,6 +201,7 @@ import patronitedbrankings from "../../images/patronitedb-rankings.jpg";
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
+    opacity: 0;
   }
 
   h2 {
@@ -270,5 +271,29 @@ import patronitedbrankings from "../../images/patronitedb-rankings.jpg";
       display: flex;
       flex-direction: column-reverse;
     }
+
+    section {
+      opacity: 1;
+    }
   }
 </style>
+
+<script>
+  const sections = document.querySelectorAll("section");
+
+  if (sections && window.innerWidth > 700) {
+    for (const section of sections) {
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            section.classList.add("fade-in");
+          }
+        },
+        {
+          threshold: 0.6,
+        }
+      );
+      observer.observe(section);
+    }
+  }
+</script>
