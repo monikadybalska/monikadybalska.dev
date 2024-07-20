@@ -4,50 +4,58 @@ import Anchor from "./Anchor.astro";
 ---
 
 <footer>
-  <div class="col">
-    <div class="copyright">
-      <Logo />
-      <h2>Designed and built by Monika Dybalska with:</h2>
+  <div class="footer-container">
+    <div class="col">
+      <div class="copyright">
+        <Logo />
+        <h2>Designed and built by Monika Dybalska with:</h2>
+      </div>
+      <div>
+        <img src="/astro.svg" alt="Astro logo" title="Astro" class="logo" />
+        <img
+          src="/netlify.svg"
+          alt="Netlify logo"
+          title="Netlify"
+          class="logo"
+        />
+      </div>
+      <a
+        href="https://github.com/monikadybalska/monikadybalska.dev"
+        class="link">View source code</a
+      >
+      <p>
+        This project uses the <a
+          href="https://kroje.org/en/fonts/zaklad/"
+          target="_blank"
+          class="zaklad">Zakład</a
+        > and <a
+          href="https://fontsinuse.com/typefaces/80608/drogowskaz"
+          target="_blank">Drogowskaz</a
+        > fonts. Both fonts are free, open-source, and inspired by 20th-century Polish
+        typefaces. If you're interested in checking out more fonts from my home country,
+        make sure to visit the <a href="https://kroje.org/en/" target="_blank"
+          >Warsaw Types</a
+        > project website.
+      </p>
     </div>
-    <div>
-      <img src="/astro.svg" alt="Astro logo" title="Astro" class="logo" />
-      <img src="/netlify.svg" alt="Netlify logo" title="Netlify" class="logo" />
+    <div class="col links">
+      <Anchor text="Resume" href="cv-monika-dybalska.pdf" variant="text" />
+      <Anchor
+        text="Email"
+        href="mailto:monika.dybalska@hotmail.com"
+        variant="text"
+      />
+      <Anchor
+        text="GitHub"
+        href="https://github.com/monikadybalska"
+        variant="text"
+      />
+      <Anchor
+        text="LinkedIn"
+        href="https://www.linkedin.com/in/monika-dybalska/"
+        variant="text"
+      />
     </div>
-    <a href="https://github.com/monikadybalska/monikadybalska.dev" class="link"
-      >View source code</a
-    >
-    <p>
-      This project uses the <a
-        href="https://kroje.org/en/fonts/zaklad/"
-        target="_blank"
-        class="zaklad">Zakład</a
-      > and <a
-        href="https://fontsinuse.com/typefaces/80608/drogowskaz"
-        target="_blank">Drogowskaz</a
-      > fonts. Both fonts are free, open-source, and inspired by 20th-century Polish
-      typefaces. If you're interested in checking out more fonts from my home country,
-      make sure to visit the <a href="https://kroje.org/en/" target="_blank"
-        >Warsaw Types</a
-      > project website.
-    </p>
-  </div>
-  <div class="col links">
-    <Anchor text="Resume" href="cv-monika-dybalska.pdf" variant="text" />
-    <Anchor
-      text="Email"
-      href="mailto:monika.dybalska@hotmail.com"
-      variant="text"
-    />
-    <Anchor
-      text="GitHub"
-      href="https://github.com/monikadybalska"
-      variant="text"
-    />
-    <Anchor
-      text="LinkedIn"
-      href="https://www.linkedin.com/in/monika-dybalska/"
-      variant="text"
-    />
   </div>
 </footer>
 
@@ -55,14 +63,22 @@ import Anchor from "./Anchor.astro";
   footer {
     color: #f8f5ed;
     width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    padding: 10rem 0 10rem 0;
+    align-items: center;
+    justify-content: center;
+    contain: content;
+    background-color: #19150a;
+  }
+
+  .footer-container {
+    width: 100%;
     height: fit-content;
     box-sizing: border-box;
     display: flex;
-    padding: 10rem 15rem 10rem 15rem;
     justify-content: space-between;
-    align-items: center;
-    contain: content;
-    background-color: #19150a;
+    max-width: 1200px;
   }
 
   .col {
@@ -80,6 +96,7 @@ import Anchor from "./Anchor.astro";
   .link {
     color: rgb(71, 209, 175);
     text-transform: uppercase;
+    width: fit-content;
   }
 
   .copyright {
@@ -120,17 +137,15 @@ import Anchor from "./Anchor.astro";
   @media screen and (max-width: 1300px) {
     footer {
       padding: 10rem 5rem 10rem 5rem;
-      align-items: center;
-      justify-content: space-between;
     }
   }
 
   @media screen and (max-width: 700px) {
     footer {
-      scroll-snap-align: unset;
       padding: 5rem 2rem 5rem 2rem;
-      align-items: center;
-      justify-content: space-between;
+    }
+
+    .footer-container {
       min-height: fit-content;
       flex-direction: column;
       gap: 4rem;

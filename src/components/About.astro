@@ -95,10 +95,15 @@ import tailwind from "../images/tailwind.svg";
 
   .icon {
     width: 6rem;
-    max-width: 100px;
-    max-height: 100px;
+    max-width: 90px;
+    max-height: 90px;
     filter: drop-shadow(10px 10px 4px rgb(89, 89, 89));
     animation: maintain 20s linear infinite;
+  }
+
+  .col,
+  .tech-icons {
+    opacity: 0;
   }
 
   .tech-icons {
@@ -111,8 +116,8 @@ import tailwind from "../images/tailwind.svg";
   .tech-icons-circle {
     width: 20rem;
     height: 20rem;
-    max-width: 300px;
-    max-height: 300px;
+    max-width: 250px;
+    max-height: 250px;
     position: relative;
     flex-shrink: 0;
     border: solid #19150a 1px;
@@ -172,6 +177,11 @@ import tailwind from "../images/tailwind.svg";
   }
 
   @media screen and (max-width: 700px) {
+    .col,
+    .tech-icons {
+      opacity: 1;
+    }
+
     .icon {
       max-width: 50px;
       max-height: 50px;
@@ -188,3 +198,25 @@ import tailwind from "../images/tailwind.svg";
     }
   }
 </style>
+
+<script>
+  const section = document.querySelector("#about");
+  const col = section?.querySelector(".col");
+  const techIcons = section?.querySelector(".tech-icons");
+
+  if (section && col && techIcons && window.innerWidth > 700) {
+    const timeouts: { [id: number]: number } = {};
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          col.classList.add("slide-right");
+          techIcons.classList.add("fade-in", "delay-600");
+        }
+      },
+      {
+        threshold: 0.6,
+      }
+    );
+    observer.observe(section);
+  }
+</script>
