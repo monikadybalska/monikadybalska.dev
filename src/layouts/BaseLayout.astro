@@ -300,7 +300,7 @@ const { title } = Astro.props;
   }
 
   .slide-down {
-    animation: slide-down ease-out 1000ms;
+    animation: slide-down ease-in-out 1000ms;
     animation-fill-mode: forwards;
   }
 
@@ -314,19 +314,7 @@ const { title } = Astro.props;
     animation-fill-mode: forwards;
   }
 
-  .delay-300 {
-    animation-delay: 300ms;
-  }
-
   .delay-600 {
     animation-delay: 600ms;
-  }
-
-  .delay-900 {
-    animation-delay: 900ms;
-  }
-
-  .delay-1200 {
-    animation-delay: 1200ms;
   }
 </style>
