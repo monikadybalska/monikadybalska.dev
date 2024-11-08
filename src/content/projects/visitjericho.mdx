@@ -1,0 +1,228 @@
+---
+title: "Visit Jericho"
+preview:
+  {
+    thumbnail:
+      {
+        src: "../../images/visitjericho.jpg",
+        alt: "A screenshot of the Visit Jericho website homepage",
+      },
+    description: "A travel guide website for a non-profit project with Tech To The Rescue",
+    tags: ["Next.js", "Tailwind CSS", "GraphQL"],
+  }
+---
+
+import { Image } from "astro:assets";
+import ProjectLayout from "../../layouts/ProjectLayout.astro";
+import ProjectOverview from "../../components/projects/ProjectOverview.astro";
+import ProjectTechStack from "../../components/projects/ProjectTechStack.astro";
+import ProjectChallenges from "../../components/projects/ProjectChallenges.astro";
+import visitjericho from "../../images/visitjericho.jpg";
+
+<ProjectOverview
+  title="Visit Jericho"
+  label="Beta"
+  stack={[
+    ["nextjs", "Next.js"],
+    ["tailwindcss", "Tailwind CSS"],
+    ["graphql", "GraphQL"],
+  ]}
+  categories={["Non-profit", "Web development", "Web design"]}
+  siteURL="https://beta.visitjericho.com"
+  repoURL="https://github.com/monikadybalska/visitjericho"
+  image={{
+    src: visitjericho,
+    alt: "A screenshot of the Visit Jericho website homepage",
+  }}
+>
+
+Visit Jericho is a travel guide website for the city of Jericho,
+developed on the request of the non-governmental organisation Mosaic
+Centre Jericho. I designed and built this website from scratch using
+Next.js, TailwindCSS, GraphQL, and WordPress.
+
+</ProjectOverview>
+
+<section>
+
+## Background and goals
+
+When I came across Mosaic Centre Jericho's project brief on the Tech To
+The Rescue website, I got excited about the possibility of helping a
+passionate travel guide promote his city. Since Mosaic Centre Jericho
+created the content, I had full control over the design and development
+process and I wanted to make sure that the site balanced a modern feel for
+the users with the familiarity and ease of use for the website
+administrators. In short, I had three main goals in mind:
+
+- Speed, performance, and SEO optimisation to provide the best user
+  experience
+- Headless CMS for the best performance and flexibility
+- WordPress integration to allow the organisation to easily update the website in their familiar WordPress environment
+
+</section>
+
+<ProjectTechStack categories={[
+  {
+    title: "Front end",
+    stack: [
+      {
+        src:"/nextjs-white.svg",
+        alt:"Next.js logo",
+        title:"Next.js",
+        class:"logo",
+      },
+    ]
+  },
+  {
+    title: "Styling",
+    stack: [
+      {
+        src:"/tailwindcss-white.svg",
+        alt:"Tailwind CSS logo",
+        title:"Tailwind CSS",
+        class:"logo",
+      },
+    ]
+  },
+  {
+    title: "Data",
+    stack: [
+      {
+        src:"/graphql-white.svg",
+        alt:"GraphQL logo",
+        title:"GraphQL",
+        class:"logo small",
+      },
+    ]
+  },
+  {
+    title: "Testing",
+    stack: [
+      {
+        src:"/jest.svg",
+        alt:"Jest logo",
+        title:"Jest",
+        class:"logo small",
+      },
+      {
+        src:"/playwright.svg",
+        alt:"Playwright logo",
+        title:"Playwright",
+        class:"logo small",
+      },
+    ]
+  },
+  {
+    title: "CI/CD",
+    stack: [
+      {
+        src:"/github-white.png",
+        alt:"GitHub logo",
+        title:"GitHub",
+        class:"logo small",
+      },
+    ]
+  },
+  {
+    title: "Deployment",
+    stack: [
+      {
+        src:"/netlify.svg",
+        alt:"Netlify logo",
+        title:"Netlify",
+        class:"logo small",
+      },
+    ]
+  },
+  {
+    title: "Media optimisation",
+    stack: [
+      {
+        src:"/aws-white.svg",
+        alt:"AWS Cloud logo",
+        title:"AWS Cloud",
+        class:"logo-icon",
+      },
+      {
+        src:"/cloudfront.svg",
+        alt:"Amazon Cloudfront logo",
+        title:"Amazon Cloudfront",
+        class:"logo-icon",
+      },
+      {
+        src:"/s3.svg",
+        alt:"Amazon S3 logo",
+        title:"Amazon S3",
+        class:"logo-icon",
+      },
+    ]
+  },
+  {
+    title: "Hosting",
+    stack: [
+      {
+        src:"/aws-white.svg",
+        alt:"AWS Cloud logo",
+        title:"AWS Cloud",
+        class:"logo-icon",
+      },
+      {
+        src:"/lightsail.svg",
+        alt:"Amazon Lightsail logo",
+        title:"Amazon Lightsail",
+        class:"logo-icon",
+      },
+    ]
+  },
+]}>
+
+To meet the project goals, I had to settle on a modern and reliable
+tech stack. WordPress as the CMS was a given, so I began a search for
+a compatible front-end/full-stack framework. With the Next.js App
+Router, I was able easily fetch the CMS data with GraphQL, while
+optimising performance.
+
+As for the design, Tailwind CSS made styling both quick and consistent
+and worked seamlessly with component libraries such as Material
+Tailwind or Radix UI.
+
+To test my code, I used Jest for unit testing (aside from the
+not-yet-supported server components) and Playwright for E2E testing. I
+also chose GitHub and GitHub actions for CI/CD, which allowed me to
+introduce feature branches and run tests on commits.
+
+Netlify's integration with Next.js made deployment a breeze, and
+Amazon Lightsail allowed us to link our WordPress instance in minutes.
+To further optimise media, we also used Amazon Cloudfront and S3.
+
+</ProjectTechStack>
+
+<ProjectChallenges>
+
+<Fragment slot="first-col">
+
+### Code organisation
+
+As for code organisation, I prioritised clarity and reusability. I
+used the Material Tailwind component library to ensure consistency.
+Since I needed to make some tweaks to meet the specific needs of the
+design, I created component directories with varying scopes next to my
+Next.js route directories.
+
+</Fragment>
+
+<Fragment slot="second-col">
+
+### Integrating different technologies
+
+Some of the services we initially considered due to competetive
+pricing had not yet introduced full integration with RSC and the App
+Router. To take advantage of Netlify's uniquely amazing integration
+without sacrificing cost-efficiency, I lowered the cost on the
+deployment side by pre-optimising images with Amazon Cloudfront and
+S3.
+
+</Fragment>
+
+</ProjectChallenges>

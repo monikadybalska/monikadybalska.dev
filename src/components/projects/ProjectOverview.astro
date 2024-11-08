@@ -1,12 +1,11 @@
 ---
-import Card from "./Card.astro";
-import Anchor from "./Anchor.astro";
+import Card from "../Card.astro";
+import Anchor from "../Anchor.astro";
 import { Image } from "astro:assets";
 
 interface Props {
   title: string;
   label?: string;
-  description: string;
   stack: string[][];
   categories: string[];
   siteURL: string;
@@ -17,16 +16,8 @@ interface Props {
   };
 }
 
-const {
-  title,
-  label,
-  description,
-  stack,
-  categories,
-  siteURL,
-  repoURL,
-  image,
-} = Astro.props;
+const { title, label, stack, categories, siteURL, repoURL, image } =
+  Astro.props;
 ---
 
 <section class="project-overview">
@@ -36,9 +27,7 @@ const {
   </div>
   <div class="cols">
     <div class="col">
-      <p>
-        {description}
-      </p>
+      <slot />
       <div class="summary-sections">
         <Card variant="outlined">
           <h2 slot="title" class="card-title">Stack</h2>

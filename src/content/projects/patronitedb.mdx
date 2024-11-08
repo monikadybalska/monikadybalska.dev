@@ -1,0 +1,199 @@
+---
+title: "PatroniteDB"
+preview:
+  {
+    thumbnail:
+      {
+        src: "../../images/patronitedb.jpg",
+        alt: "A screenshot of the PatroniteDB homepage",
+      },
+    description: "A sortable, filtered database of Patronite authors and subscriptions",
+    tags: ["Tanstack Query", "NestJS", "Docker"],
+  }
+---
+
+import { Image } from "astro:assets";
+import ProjectLayout from "../../layouts/ProjectLayout.astro";
+import ProjectOverview from "../../components/projects/ProjectOverview.astro";
+import ProjectTechStack from "../../components/projects/ProjectTechStack.astro";
+import ProjectChallenges from "../../components/projects/ProjectChallenges.astro";
+import patronitedb from "../../images/patronitedb.jpg";
+import patronitedbrankings from "../../images/patronitedb-rankings.jpg";
+
+<ProjectOverview
+  title="PatroniteDB"
+  stack={[
+    ["tanstack", "Tanstack Query"],
+    ["docker", "Docker"],
+    ["nestjs", "Nest.js"],
+  ]}
+  categories={["Personal", "APIs", "Web development"]}
+  siteURL="https://patronitedb.vercel.app/"
+  repoURL="https://github.com/monikadybalska/patronitedb-frontend"
+  image={{
+    src: patronitedb,
+    alt: "A screenshot of the PatroniteDB homepage",
+  }}
+>
+
+PatroniteDB is an online database that provides in-depth insights into
+Patronite creators and trends. I developed it as a hobby project using Nest.js
+and SQL for the back end and React for the front end.
+
+</ProjectOverview>
+
+<section>
+
+## Background and goals
+
+Since [Patronite](https://patronite.pl/) is one of the most popular
+platforms for subscription services in Poland, I wanted to provide an overview
+of all its goings-on such as the most popular creators, highest-earning
+creators, new creators joining. Inspired by [SteamDB](https://steamdb.info/), I went on to create an online
+database of all things Patronite that would enable the users to:
+
+- Get insights into new, trending, and the most popular creators at a glance
+- Access and filter creator charts by number of subscribers, revenue,
+- Review a specific creators' stats and compare them over time with tables and
+  charts
+
+</section>
+
+<ProjectTechStack categories={[
+  {
+    title: "Front end",
+    stack: [
+      {
+        src:"/react.svg",
+        alt:"React logo",
+        title:"React",
+        class:"logo small",
+      },
+      {
+        src:"/tanstack.png",
+        alt:"Tanstack logo",
+        title:"Tanstack",
+        class:"logo small",
+      },
+    ]
+  },
+  {
+    title: "Styling",
+    stack: [
+      {
+        src:"/mui.svg",
+        alt:"Material UI logo",
+        title:"Material UI",
+        class:"logo small",
+      },
+      {
+        src:"/tanstack.png",
+        alt:"Tanstack logo",
+        title:"Tanstack",
+        class:"logo small",
+      },
+    ]
+  },
+  {
+    title: "Back end",
+    stack: [
+      {
+        src:"/influxdata.svg",
+        alt:"InfluxData logo",
+        title:"InfluxData",
+        class:"logo",
+      },
+      {
+        src:"/nestjs.svg",
+        alt:"Nest.js logo",
+        title:"Nest.js",
+        class:"logo small",
+      },
+    ]
+  },
+  {
+    title: "Testing",
+    stack: [
+      {
+        src:"/jest.svg",
+        alt:"Jest logo",
+        title:"Jest",
+        class:"logo small",
+      },
+    ]
+  },
+  {
+    title: "CI/CD",
+    stack: [
+      {
+        src:"/github-white.png",
+        alt:"GitHub logo",
+        title:"GitHub",
+        class:"logo small",
+      },
+    ]
+  },
+  {
+    title: "Deployment",
+    stack: [
+      {
+        src:"/docker-white.svg",
+        alt:"Docker logo",
+        title:"Docker",
+        class:"logo",
+      },
+      {
+        src:"/vercel.svg",
+        alt:"Vercel logo",
+        title:"Vercel",
+        class:"logo",
+      },
+    ]
+  },
+]}>
+
+To achieve consistency, reusability, and a user-friendly design, I
+chose React and Material UI. Since the project involved multiple
+complex queries and countless dynamic routes, I opted for two Tanstack
+solutions that integrated seamlessly with each other — Tanstack Query
+and Tanstack Router.
+
+To retrieve data from the Patronite website, I built a Node.js crawler
+— NestJS made the process quick, easy, and enjoyable. From then on, I
+stored my data in InfluxDB and queried it using SQL.
+
+At its initial stage, the website is deployed with Vercel, but I also
+containerised it with Docker to ensure consistency and scalability as
+the project grows.
+
+</ProjectTechStack>
+
+<ProjectChallenges>
+
+<Fragment slot="first-col">
+
+### Performance vs. flexibility
+
+The aim of the website was to provide a wide range of functionalities and
+maximum flexibility to the users. This, however, involved many continuous
+user-triggered data queries and could end up affecting loading speed. To
+optimise performance, I made use of Tanstack Query's extensive fetching and
+rendering functionalities, such as prefetching, suspense queries, or infinite
+queries.
+
+</Fragment>
+
+<Image
+  src={patronitedbrankings}
+  class="section-image"
+  alt="A screenshot of the PatroniteDB rankings page"
+  widths={[644, 2000]}
+  sizes="(max-width: 700px) 644px, 2000px"
+  width="644"
+  height="621.75"
+  format="webp"
+  loading="lazy"
+  slot="second-col"
+/>
+
+</ProjectChallenges>
