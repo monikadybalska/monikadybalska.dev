@@ -1,0 +1,92 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<BaseLayout title={`${title} | Monika Dybalska`}>
+  <slot />
+</BaseLayout>
+
+<style is:global>
+  .section-image {
+    max-width: 100%;
+    max-height: auto;
+    height: auto;
+    box-sizing: border-box;
+    border: 1px solid rgb(71, 209, 175);
+  }
+
+  section {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    opacity: 0;
+  }
+
+  h2 {
+    width: 100%;
+    text-align: center;
+    font-size: 2rem;
+  }
+
+  .cols {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem;
+  }
+
+  .col {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  ul {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  li {
+    list-style-type: square;
+    list-style-position: inside;
+  }
+
+  @media screen and (max-width: 700px) {
+    .cols {
+      display: flex;
+      flex-direction: column-reverse;
+    }
+
+    section {
+      opacity: 1;
+    }
+  }
+</style>
+
+<script>
+  const sections = document.querySelectorAll("section");
+
+  if (sections && window.innerWidth > 700) {
+    for (const section of sections) {
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            section.classList.add("fade-in");
+          }
+        },
+        {
+          threshold: 0.6,
+        }
+      );
+      observer.observe(section);
+    }
+  }
+</script>

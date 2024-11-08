@@ -1,0 +1,71 @@
+---
+interface Props {
+  categories: {
+    title: string;
+    stack: { src: string; alt: string; title: string; class: string }[];
+  }[];
+}
+
+const { categories } = Astro.props;
+---
+
+<section>
+  <h2>Tech stack</h2>
+  <div class="cols">
+    <div>
+      {
+        categories.map((category) => (
+          <div class="tech-stack-category">
+            <h3>{category.title}</h3>
+            <div class="logos">
+              {category.stack.map((tech) => (
+                <img
+                  src={tech.src}
+                  alt={tech.alt}
+                  title={tech.title}
+                  class={tech.class}
+                />
+              ))}
+            </div>
+          </div>
+        ))
+      }
+    </div>
+    <div class="col">
+      <slot />
+    </div>
+  </div>
+</section>
+
+<style>
+  .tech-stack-category {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #19150a;
+    color: #f8f5ed;
+    padding: 0.5rem;
+    border: 1px solid rgb(71, 209, 175);
+  }
+
+  .logos {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .logo {
+    max-height: 15px;
+    height: 2rem;
+  }
+
+  .logo-icon {
+    border-radius: 50%;
+    width: 35px;
+  }
+
+  .logo.small {
+    max-height: 30px;
+  }
+</style>
